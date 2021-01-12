@@ -3,6 +3,7 @@ using namespace std;
 
 void Next_Question();
 void Get_Answer();
+void Menu();
 void Question_1();
 void Question_2();
 void Question_3();
@@ -34,10 +35,136 @@ void Get_Answer() {
 
 }
 
+void menu() {
+	const int
+		QUESTION_1 = 1,
+		QUESTION_2 = 2,
+		QUESTION_3 = 3,
+		QUESTION_4 = 4,
+		QUESTION_5 = 5,
+		QUESTION_6 = 6,
+		QUESTION_7 = 7,
+		QUESTION_8 = 8,
+		QUESTION_9 = 9,
+		QUESTION_10 = 10,
+		QUESTION_11 = 11,
+		QUESTION_12 = 12,
+		QUESTION_13 = 13,
+		QUESTION_14 = 14,
+		QUESTION_15 = 15,
+		QUESTION_16 = 16,
+		QUESTION_17 = 17,
+		QUESTION_18 = 18,
+		QUIT_PROGRAM = 19;
+	int choice = 0;
+
+	while (choice != QUIT_PROGRAM) {
+
+
+		cout << "Here are the questions for Chapter 2" << endl;
+
+		cout << "\t Question Menu" << endl
+			<< "1. Question 1 - Miles Per Gallon" << endl
+			<< "2. Question 2 - Stadium Seating" << endl
+			<< "3. Question 3 - Test Average" << endl
+			<< "4. Question 4 - " << endl
+			<< "5. Question 5 - " << endl
+			<< "6. Question 6 - " << endl
+			<< "7. Question 7 - " << endl
+			<< "8. Question 8 - " << endl
+			<< "9. Question 9 - " << endl
+			<< "10. Question 10 - " << endl
+			<< "11. Question 11 - " << endl
+			<< "12. Question 12 - " << endl
+			<< "13. Question 13 - " << endl
+			<< "14. Question 14 - " << endl
+			<< "15. Question 15 - " << endl
+			<< "16. Question 16 - " << endl
+			<< "17. Question 17 - " << endl
+			<< "18. Question 18 - " << endl
+			<< "19. Quit Program " << endl;
+
+		cout << "What question do you want to look at?" << endl;
+		cin >> choice;
+
+		if (choice < 0 || choice > QUIT_PROGRAM)
+		{
+			cout << "Please enter a valid choice: ";
+		}
+
+		switch (choice)
+		{
+		case QUESTION_1:
+			Question_1();
+			break;
+		case QUESTION_2:
+			Question_2();
+			break;
+		case QUESTION_3:
+			Question_3();
+			break;
+		case QUESTION_4:
+			Question_4();
+			break;
+		case QUESTION_5:
+			Question_5();
+			break;
+		case QUESTION_6:
+			Question_6();
+			break;
+		case QUESTION_7:
+			Question_7();
+			break;
+		case QUESTION_8:
+			Question_8();
+			break;
+		case QUESTION_9:
+			Question_9();
+			break;
+		case QUESTION_10:
+			Question_10();
+			break;
+		case QUESTION_11:
+			Question_11();
+			break;
+		case QUESTION_12:
+			Question_12();
+			break;
+		case QUESTION_13:
+			Question_13();
+			break;
+		case QUESTION_14:
+			Question_14();
+			break;
+		case QUESTION_15:
+			Question_15();
+			break;
+		case QUESTION_16:
+			Question_16();
+			break;
+		case QUESTION_17:
+			Question_17();
+			break;
+		case QUESTION_18:
+			Question_18();
+			break;
+		}
+
+	}
+
+}
+	
 int main() {
 	cout << "\t Chapter 2: Introduction to C++" << endl;
-	cout << "This program displayes the Programming Challenges in Chapter 2" << endl << endl;
-
+	cout << "This program displays the Programming Challenges in Chapter 2" << endl << endl;
+	
+	//menu();
+	Question_1();
+	
+	/*
+	menu();
+	
+	
 	Question_1();
 	Next_Question();
 
@@ -92,6 +219,7 @@ int main() {
 	Question_18();
 	cout << endl << "Press enter to end program.";
 	cin.get();
+	*/
 
 	cout << "Thanks for coming! Goodbye!" << endl;
 }
@@ -101,8 +229,9 @@ void Question_1() {
 	total = x + y;
 
 	cout << "\t Question 1 - Sum of Two Numbers" << endl;
-	cout << "Write a program that stores the intergers 50 and 100 in variable, and stores the sum of these two in a viriable named total" << endl;
-	void Get_Answer(); //Why isnt this working?
+	cout << "Write a program that stores the integers 50 and 100 in variable, and stores the sum of these two in a variable named total" << endl;
+	
+	Get_Answer(); //Why isn't this working?
 	cout << "\t Answer:" << endl;
 	cout << "The variable x is " << x << " and the variable y is " << y << " and the total is " << total << "." << endl;
 }
@@ -112,12 +241,13 @@ void Question_2() {
 	double sales = 8600000, profit;
 
 	cout << "\t Question 2 - Sales Prediction" << endl;
-	cout << "The East Coast sales division of a company generetes 58 percent profit of total sales. ";
+	cout << "The East Coast sales division of a company generates 58 percent profit of total sales. ";
 	cout << "Based on that percentage, write a program that predicts how much the East Coast division will generate";
 	cout << " if the company has $8.6 million sales this year." << endl;
 
 	profit = (percent / 100) * sales;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "const double percent = 58; double sales = 8600000, profit;" << endl;
 	cout << "profit = (percent / 100) * sales;" << endl;
@@ -134,6 +264,7 @@ void Question_3() {
 
 	final_cost = purchase_cost + (purchase_cost * state_tax) + (purchase_cost * county_tax);
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "const double state_tax = .04, county_tax = .02; double purchase_cost = 98, final_cost;" << endl;
 	cout << "final_cost = purchase_cost + (purchase_cost * state_tax) + (purchase_cost * county_tax);" << endl;
@@ -145,7 +276,7 @@ void Question_4() {
 	double bill = 88.67, bill_tax, bill_tip, final_bill;
 
 	cout << "\t Question 4 - Restaurant Bill" << endl;
-	cout << "Write a program that computes the tax and tip on a restuarant bill for a patron with a $88.67 meal ";
+	cout << "Write a program that computes the tax and tip on a restaurant bill for a patron with a $88.67 meal ";
 	cout << "charge. The tax will be 6.75 percent of the meal cost. The tip should be 20 percent ";
 	cout << "of the total after adding tax. Display the meal cost, tax amount, tip amount, and total bill on the screen." << endl;
 
@@ -153,10 +284,11 @@ void Question_4() {
 	bill_tip = bill * (tip / 100);
 	final_bill = bill + bill_tax + bill_tip;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "const double tax = 6.75, tip = 20; double bill = 88.67, bill_tax, bill_tip, final_bill;" << endl;
 	cout << "bill_tax = bill * (tax / 100); bill_tip = bill * (tip / 100); final_bill = bill + bill_tax + bill_tip;" << endl;
-	cout << "The meal cost is $" << bill << ", tax amount is $" << bill_tax << ", and the tip amout is $" << bill_tip;
+	cout << "The meal cost is $" << bill << ", tax amount is $" << bill_tax << ", and the tip amount is $" << bill_tip;
 	cout << "." << endl << "The final cost is $" << final_bill << endl;
 }
 
@@ -168,12 +300,13 @@ void Question_5() {
 	cout << "\t Question 5 - Average of Values" << endl;
 	cout << "To get the average of a series of values, you add the values up and then divide the sum by the number of values ";
 	cout << "Write a program that stores the following values in five different variables: 28, 32, 37, 24, and 33. " ;
-	cout << "The program should first calculate the sume of these five variables and store the result in a variable named sum.";
+	cout << "The program should first calculate the sum of these five variables and store the result in a variable named sum.";
 	cout << "Then, the program should divide the sum variable by 5 to get the average. Display the average on the screen." << endl;
 
 	sum = a + b + c + d + e;
 	avg = sum / 5;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "const int a = 28, b = 32, c = 37, d = 24, e = 33; double sum, avg;" << endl;
 	cout << "sum = a + b + c + d + e; avg = sum / 5;" << endl;
@@ -189,10 +322,11 @@ void Question_6() {
 	cout << "payAmount: This variable will hold the amount of pay the employee earns each pay period. Initialize the variable ";
 	cout << "with 2200.0." << endl;
 	cout << "payPeriods: This variable will hold the number of pay periods in a year. Initialize the variable with 26." << endl;
-	cout << "annualPay: This variable will hold the emplyee's total annual pay, which will be calculated." << endl;
+	cout << "annualPay: This variable will hold the employee's total annual pay, which will be calculated." << endl;
 
 	annualPay = payAmount * payPeriods;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double payAmount = 2200.0, payPeriods = 26, annualPay;" << endl;
 	cout << "annualPay = payAmount * payPeriods;" << endl;
@@ -213,6 +347,7 @@ void Question_7() {
 	riselevel7 = riserate * seven_years;
 	riselevel10 = riserate * ten_years;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double riserate = 1.5, five_years = 5, seven_years = 7, ten_years = 10, riselevel5, riselevel7, riselevel10;" << endl;
 	cout << "riselevel5 = riserate * five_years; riselevel7 = riserate * seven_years; riselevel10 = riserate * ten_years;" << endl;
@@ -234,6 +369,7 @@ void Question_8() {
 	item_subtotal = item1 + item2 + item3 + item4 + item5;
 	total = item_subtotal + (item_subtotal * salestax);
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double item1 = 15.95, item2 = 24.95, item3 = 6.95, item4 = 12.95, item5 = 3.95, item_subtotal, salestax = .07, total;" << endl;
 	cout << "item_subtotal = item1 + item2 + item3 + item4 + item5; total = item_subtotal + (item_subtotal * salestax);" << endl;
@@ -255,11 +391,12 @@ void Question_9() {
 	double d;
 
 	cout << "\t Question 9 - Cyborg Data Type Sizes" << endl;
-	cout << "You have been given a job as a programmer on a Cyborg supercoputer. In order to accomplish some calculations, you ";
+	cout << "You have been given a job as a programmer on a Cyborg supercomputer. In order to accomplish some calculations, you ";
 	cout << "need to know how many bytes the following data types use: char, int, float, and double. You do not have any ";
 	cout << "manuals so you can't look this information up. Write a C++ program that will determine the amount of memory used ";
 	cout << "by these types and display the information on the screen." << endl;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "char a; int b; float c; double d;" << endl;
 	cout << "The size of a char is " << sizeof(a) << endl;
@@ -272,13 +409,14 @@ void Question_10() {
 	double gal = 15, mi = 375, mpg;
 
 	cout << "\t Question 10 - Miles per Gallon" << endl;
-	cout << "A car holds 15 gallons of gasolione and can travel 375 miles before refeuling. Write a program that calculates the number of miles ";
+	cout << "A car holds 15 gallons of gasoline and can travel 375 miles before refueling. Write a program that calculates the number of miles ";
 	cout << "per gallon the car gets. Display the results on the screen." << endl;
 	cout << "Hint: Use the following formula when calculating miles per gallon (MPG):" << endl;
 	cout << "MPG = Miles Driven/Gallons of Gas Used" << endl;
 
 	mpg = mi / gal;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double gal = 15, mi = 375, mpg;" << endl;
 	cout << "mpg = mi / gal;" << endl;
@@ -298,11 +436,12 @@ void Question_11() {
 	city_distance = gal * city_mpg;
 	hw_distance = gal * hw_mpg;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double city_mpg = 23.5, hw_mpg = 28.9, gal = 20, city_distance, hw_distance;" << endl;
 	cout << "city_distance = gal * city_mpg; hw_distance = gal * hw_mpg;" << endl;
-	cout << "The ditance the car can travel on one tank of gas within the city is " << city_distance << " miles." << endl;
-	cout << "The ditance the car can travel on one tank of gas on the highway is " << hw_distance << " miles." << endl;
+	cout << "The distance the car can travel on one tank of gas within the city is " << city_distance << " miles." << endl;
+	cout << "The distance the car can travel on one tank of gas on the highway is " << hw_distance << " miles." << endl;
 
 }
 
@@ -310,11 +449,12 @@ void Question_12() {
 	double acre = 43560, num;
 
 	cout << "\t Question 12 - Land Calculation" << endl;
-	cout << "One acre of land is equivalent to 43,560 square feet. Write a program that calculates the number of acers in a tract of land";
+	cout << "One acre of land is equivalent to 43,560 square feet. Write a program that calculates the number of acres in a tract of land";
 	cout << "with 391,876 square feet." << endl;
 
 	num = 391876 / acre;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double acre = 43560, num;" << endl;
 	cout << "num = 391876 / acre;" << endl;
@@ -325,11 +465,12 @@ void Question_13() {
 	double percent = 35, cost = 14.95, profit;
 
 	cout << "\t Question 13 - Circuit Board Price " << endl;
-	cout << "An electronics company sells circuit boards at a 35 percent profit. Write a program that will calculate teh selling price ";
+	cout << "An electronics company sells circuit boards at a 35 percent profit. Write a program that will calculate the selling price ";
 	cout << "of a board that costs $14.95. Display the result on the screen. " << endl;
 
 	profit = cost + (cost * (percent / 100));
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double percent = 35, cost = 14.95, profit;" << endl; 
 	cout << "profit = cost + (cost * (percent / 100));" << endl;
@@ -339,10 +480,11 @@ void Question_13() {
 void Question_14() {
 
 	cout << "\t Question 14 - Personal information" << endl;
-	cout << "Write a program that displays the following pieces of information, each on a seperate line: ";
+	cout << "Write a program that displays the following pieces of information, each on a separate line: ";
 	cout << "Your name" << endl << "Your address, with city, state and ZIP code" << endl << "Your telephone number" << endl;
 	cout << "Your college major" << endl << "Use only a single cout statement to display all of this information." << endl;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "My name is Yusuf" << endl << "I live at 520 Ryan Ter., San Ramon, CA, 94583" << endl << "My phone number is (925) 535-9943" << endl;
 	cout << "I am a cognitive science major" << endl;
@@ -354,6 +496,7 @@ void Question_15() {
 	cout << "Write a program that displays the following pattern on the screen:" << endl;
 	cout << "   *   " << endl << "  ***" << endl << " *****" << endl << "*******" << endl;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "   *" << endl << "  ***" << endl << " *****" << endl << "*******" << endl;
 }
@@ -365,6 +508,7 @@ void Question_16() {
 	cout << "   *" << endl << "  ***" << endl << " *****" << endl << "*******" << endl << " *****" << endl << "  ***";
 	cout << endl << "   *" << endl;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "   *" << endl << "  ***" << endl << " *****" << endl << "*******" << endl << " *****" << endl << "  ***";
 	cout << endl << "   *" << endl;
@@ -373,7 +517,7 @@ void Question_16() {
 void Question_17() {
 	double commission = .02, stockprice = 35, totalcost, amountpaid, totalcommission;
 
-	cout << "\t Question 17 - Stoclk Commission" << endl;
+	cout << "\t Question 17 - Stock Commission" << endl;
 	cout << "Kathryn bought 750 shares of stock at a price of $35.00 per share. She must pay her stockbroker a 2 per cent commission for ";
 	cout << "the transaction. Write a program that calculates and displays the following: ";
 	cout << " - The amount paid for the stock alone (without the commission)" << endl;
@@ -384,11 +528,12 @@ void Question_17() {
 	totalcommission = amountpaid * commission;
 	totalcost = amountpaid + totalcommission;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double commission = .02, stockprice = 35, totalcost, amountpaid, totalcommission;" << endl;
 	cout << "amountpaid = stockprice * 750; totalcommission = amountpaid * commission; totalcost = amountpaid + totalcommission;" << endl;
 	cout << "The total stock cost is $" << amountpaid << ", total commission is $" << totalcommission;
-	cout << " and the total amount paid for stock and commisson is $" << totalcost << endl;
+	cout << " and the total amount paid for stock and commission is $" << totalcost << endl;
 
 }
 
@@ -405,10 +550,11 @@ void Question_18() {
 	weeklycustomers = customers * weekly;
 	citruscustomers = weeklycustomers * citrus;
 
+	Get_Answer();
 	cout << "\t Answer:" << endl;
 	cout << "double customers = 16500, weekly = .16, citrus = .58, weeklycustomers, citruscustomers; " << endl;
 	cout << "weeklycustomers = customers * weekly; citruscustomers = weeklycustomers * citrus;" << endl;
-	cout << "The approximate number of customers who purchased one or more energy drinks per week based on the surevey is ";
+	cout << "The approximate number of customers who purchased one or more energy drinks per week based on the survey is ";
 	cout << weeklycustomers << " and the amount that prefer citrus-flavored energy drinks amongst them is ";
 	cout << citruscustomers << "." << endl;
 }
