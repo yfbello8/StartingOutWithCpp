@@ -59,6 +59,7 @@ void menu() {
 		QUIT_PROGRAM = 19;
 	int choice = 0;
 
+
 	while (choice != QUIT_PROGRAM) {
 
 		cout << endl;
