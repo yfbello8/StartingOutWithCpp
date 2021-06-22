@@ -3,7 +3,7 @@ using namespace std;
 
 void Next_Question();
 void Get_Answer();
-void Menu();
+void menu();
 void Question_1();
 void Question_2();
 void Question_3();
@@ -31,6 +31,7 @@ void Next_Question() {
 
 void Get_Answer() {
 	cout << endl << "Press enter to show the solution" << endl;
+	cin.ignore();
 	cin.get();
 
 }
@@ -60,28 +61,28 @@ void menu() {
 
 	while (choice != QUIT_PROGRAM) {
 
-
+		cout << endl;
 		cout << "Here are the questions for Chapter 2" << endl;
 
 		cout << "\t Question Menu" << endl
-			<< "1. Question 1 - Miles Per Gallon" << endl
-			<< "2. Question 2 - Stadium Seating" << endl
-			<< "3. Question 3 - Test Average" << endl
-			<< "4. Question 4 - " << endl
-			<< "5. Question 5 - " << endl
-			<< "6. Question 6 - " << endl
-			<< "7. Question 7 - " << endl
-			<< "8. Question 8 - " << endl
-			<< "9. Question 9 - " << endl
-			<< "10. Question 10 - " << endl
-			<< "11. Question 11 - " << endl
-			<< "12. Question 12 - " << endl
-			<< "13. Question 13 - " << endl
-			<< "14. Question 14 - " << endl
-			<< "15. Question 15 - " << endl
-			<< "16. Question 16 - " << endl
-			<< "17. Question 17 - " << endl
-			<< "18. Question 18 - " << endl
+			<< "1. Question 1 - Sum of Two Numbers" << endl
+			<< "2. Question 2 - Sales Prediction" << endl
+			<< "3. Question 3 - Sales Tax" << endl
+			<< "4. Question 4 - Restaurant Bill" << endl
+			<< "5. Question 5 - Average of Values" << endl
+			<< "6. Question 6 - Annual Pay" << endl
+			<< "7. Question 7 - Ocean Levels" << endl
+			<< "8. Question 8 - Total Purchase" << endl
+			<< "9. Question 9 - Cyborg Data Type Sizes" << endl
+			<< "10. Question 10 - Miles per Gallon" << endl
+			<< "11. Question 11 - Distance per Tank of Gas" << endl
+			<< "12. Question 12 - Land Calculation" << endl
+			<< "13. Question 13 - Circuit Board Price" << endl
+			<< "14. Question 14 - Personal Information" << endl
+			<< "15. Question 15 - Triangle Pattern" << endl
+			<< "16. Question 16 - Diamond Pattern" << endl
+			<< "17. Question 17 - Stock Commission" << endl
+			<< "18. Question 18 - Energy Drink Consumption" << endl
 			<< "19. Quit Program " << endl;
 
 		cout << "What question do you want to look at?" << endl;
@@ -159,9 +160,9 @@ int main() {
 	cout << "This program displays the Programming Challenges in Chapter 2" << endl << endl;
 	
 	//menu();
-	Question_1();
+	//Question_1();
 	
-	/*
+	
 	menu();
 	
 	
@@ -219,7 +220,7 @@ int main() {
 	Question_18();
 	cout << endl << "Press enter to end program.";
 	cin.get();
-	*/
+	
 
 	cout << "Thanks for coming! Goodbye!" << endl;
 }
