@@ -403,12 +403,12 @@ void Question_4() {
 	cout << setprecision(2) << fixed;
 	cout << "The average rainfall for " << month1 << ", " << month2 << ", and " 
 		 << month3 << " is " << avg << " inches." << endl;
-
-
-
 }
 
 void Question_5() {
+	int males, females, total;
+	double percentMale, percentFemale;
+
 	cout << "Question 5 - Male and Female Percentages" << endl;
 	cout << "Write a program that asks the user for the number of males and "
 			"the number of females registered in a class. The program should "
@@ -419,9 +419,26 @@ void Question_5() {
 			"females can be calculated as 12/20=0.6, or 60%." << endl;
 
 	cout << "\t Answer:" << endl;
+	cout << "How many males registered for the class?" << endl;
+	cin >> males;
+	cout << "How many females registered for the class?" << endl;
+	cin >> females;
+
+	total = males + females;
+
+	percentMale = males / total;
+	percentFemale = females / total;
+
+	cout << "The percentage of males in the class is " << percentMale << " "
+			"while the percentage of females in the class is " << percentFemale
+	   	 << endl;
+
 }
 
 void Question_6() {
+	int cookies;
+	double sugar, butter, flour;
+
 	cout << "Question 6 - Ingredient Adjuster" << endl;
 	cout << "A cookie recipe calls for the following ingredients:" << endl <<
 			"- 1.5 cups of sugar" << endl <<
@@ -434,9 +451,28 @@ void Question_6() {
 			endl;
 
 	cout << "\t Answer:" << endl;
+	cout << "How many cookies do you want to make?" << endl;
+	cin >> cookies;
+
+	sugar = 1.5 / 48;
+	butter = 1.0 / 48;
+	flour = 2.75 / 48;
+
+	sugar = cookies * sugar;
+	butter = cookies * butter;
+	flour = cookies * flour;
+
+	cout << "To make " << cookies << " cookies, you need " << sugar << " "
+			"cup(s) of sugar, " << butter << " cups of butter, and " << flour
+		 << "cup(s) of flour." << endl;
 }
 
 void Question_7() {
+	string movieName;
+	int childTicket, adultTicket;
+	double childTicketCost, adultTicketCost, grossProfit, netProfit, 
+		distributorProfit;
+	
 	cout << "Question 7 - Box Office" << endl;
 	cout << "A movie theater only keeps a percentage of the revenue earned "
 			"from ticket sales. The remainder goes to the movie distributor. "
@@ -444,7 +480,7 @@ void Question_7() {
 		    "office profit for a night. The program should ask for the name "
 			"of the movie, and how many adult and child tickets were sold. "
 			"(The price of an adult ticket is $10.00 and a child's ticket is "
-			"$6.00 .) It should display a report similar to "<< endl <<
+			"$6.00.) It should display a report similar to "<< endl <<
 			"Movie Name:				\"Wheels of Fury\" " << endl <<
 			"Adult Tickets Sold:			382" << endl <<
 			"Child Tickets Sold:			127" << endl <<
@@ -455,10 +491,39 @@ void Question_7() {
 			"office profit." << endl;
 
 	cout << "\t Answer:" << endl;
+	cout << "What is the movie name?" << endl;
+	cin >> movieName;
 
+	cout << "How many adult tickets were sold?" << endl;
+	cin >> adultTicket;
+
+	cout << "How man child tickets were sold>" << endl;
+	cin >> childTicket;
+
+	adultTicketCost = 10.0;
+	childTicketCost = 6.0;
+
+	grossProfit = (adultTicket * adultTicketCost) + 
+		(childTicket * childTicketCost);
+	netProfit = grossProfit * .2;
+	distributorProfit = grossProfit - netProfit;
+
+	cout << "Movie Name:       \"" << movieName << "\"" << endl 
+	 	 << "Adult Ticket Sold:  " << adultTicket << endl 
+		 << "Child Tickets Sold: " << childTicket << endl;
+	cout << setprecision(2) << fixed;
+	cout << "Gross Box Office Profit:    $" << right << setw(6) << grossProfit 
+		 << endl
+		 << "Net Box Office Profit:      $" << right << setw(6) << netProfit 
+		 << endl
+		 << "Amount Paid to Distributor: $" << right << setw(6) 
+		 << distributorProfit << endl;
 }
 
 void Question_8() {
+	double lonePallet, widgetPallet, widget_weight, total_widget_weight,
+		num_widgets;
+	
 	cout << "Question 8 - How Many Widgets?" << endl;
 	cout << "The Yukon Widget Company manufactures widgets that weigh 12.5 "
 			"pounds each. Write a program that calculates how many widgets "
@@ -469,10 +534,26 @@ void Question_8() {
 			"pallet. " << endl;
 
 	cout << "\t Answer:" << endl;
+	cout << "How much does a pallet weigh by itself?" << endl;
+	cin >> lonePallet;
+
+	cout << "How much does a pallet weigh with the widgets stacked on it?" 
+		 << endl;
+	cin >> widgetPallet;
+
+	widget_weight = 12.5;
+	total_widget_weight = widgetPallet - lonePallet;
+	num_widgets = total_widget_weight / widget_weight;
+
+	cout << "The number of widgets on the pallet is " << num_widgets
+		 << " widgets" << endl;
+
 }
 
 
 void Question_9() {
+	double cookies, calories_consumed;
+	
 	cout << "Question 9 - How Many Calories?" << endl;
 	cout << "A bag of cookies holds 30 cookies. The calorie information on "
 			"the bag claims that there are 10 \"servings\" in the bag and "
@@ -481,10 +562,18 @@ void Question_9() {
 			"reports how many total calories were consumed." << endl;
 
 	cout << "\t Answer:" << endl;
+	cout << "How many cookies did you eat?" << endl;
+	cin >> cookies;
 
+	// Three cookies per serving - 100 calories per cookie
+	calories_consumed = cookies * 100;
+
+	cout << "You ate " << calories_consumed << " calories!" << endl;
 }
 
 void Question_10() {
+	double replacement_cost;
+
 	cout << "Question 10 - How Much Insurance?" << endl;
 	cout << "Many financial experts advise that property owners should insure "
 			"their homes or building for at least 80 percent of the amount it "
@@ -494,7 +583,11 @@ void Question_10() {
 			"for the property."<< endl;
 
 	cout << "\t Answer:" << endl;
+	cout << "What is the replacement cost of the building?" << endl;
+	cin >> replacement_cost;
 
+	cout << "The minimal amount of insurance you should buy for the property is "
+		<< (replacement_cost * .8) << endl;
 }
 
 void Question_11() {
@@ -507,6 +600,7 @@ void Question_11() {
 			"expenses. " << endl;
 
 	cout << "\t Answer:" << endl;
+
 }
 
 void Question_12() {
