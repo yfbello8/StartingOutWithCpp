@@ -1,0 +1,3 @@
+Question 25 - Using Files—Student Line Up 
+
+Modify the Student Line Up program described in Programming Challenge 14 so that it gets the names from a file. Names should be read in until there is no more data to read. If you have downloaded this book’s source code from the companion Web site, you will find a file named LineUp.txt in the Chapter 05 folder. You can use this file to test the program. (The companion Web site is at www.pearsonhighered.com/gaddis.) 

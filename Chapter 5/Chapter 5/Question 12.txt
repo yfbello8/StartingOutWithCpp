@@ -1,0 +1,3 @@
+Question 12 - Celsius to Fahrenheit Table 
+
+In Programming Challenge 10 of Chapter 3 you were asked to write a program that converts a Celsius temperature to Fahrenheit. Modify that program so it uses a loop to display a table of the Celsius temperatures 0–20, and their Fahrenheit equivalents.
