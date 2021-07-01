@@ -1,0 +1,7 @@
+Question 19 - Spectral Analysis 
+
+If a scientist knows the wavelength of an electromagnetic wave, he or she can deter-mine what type of radiation it is. Write a program that asks for the wavelength of an electromagnetic wave in meters and then displays what that wave is according to the chart below. (For example, a wave with a wavelength of 1E-10 meters would be an X-ray.)
+
+	1 × 10^–2	1 × 10^–3	7 × 10^–7	4 × 10^–7	1 × 10^–8	1 × 10^–11
+<-------------!--------------!--------------!----------------!---------------!----------------!----------->
+Radio Waves	Microwaves	Infrared	Visible Light	Ultraviolet	 X Rays		Gamma Rays

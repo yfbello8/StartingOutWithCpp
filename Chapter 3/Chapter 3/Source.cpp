@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 void Next_Question();
@@ -191,6 +193,7 @@ int main() {
 	cout << "\t Chapter 3: Expressions and Interactivity" << endl;
 	cout << "This program displays the Programming Challenges in Chapter 3" << endl << endl;
 
+	cout << endl << endl;
 	Menu();
 	/*
 	
@@ -591,6 +594,9 @@ void Question_10() {
 }
 
 void Question_11() {
+	double loan_payment, insurance, gas, oil, tires, maintenance, 
+		total_monthly, total_annually;
+	
 	cout << "Question 11 - Automobile Costs" << endl;
 	cout << "Write a program that asks the user to enter the monthly costs "
 			"for the following expenses incurred from operating his or her "
@@ -600,10 +606,38 @@ void Question_11() {
 			"expenses. " << endl;
 
 	cout << "\t Answer:" << endl;
+	cout << "Enter the monthly cost of your automobile loan payment:" << endl;
+	cin >> loan_payment;
 
+	cout << "Enter the monthly cost of your automobile insurance:" << endl;
+	cin >> insurance;
+
+	cout << "Enter the monthly cost of your automobile gas:" << endl;
+	cin >> gas;
+
+	cout << "Enter the monthly cost of your automobile oil:" << endl;
+	cin >> oil;
+
+	cout << "Enter the monthly cost of your automobile tires:" << endl;
+	cin >> tires;
+
+	cout << "Enter the monthly cost of your automobile maintenance:" << endl;
+	cin >> maintenance;
+
+	total_monthly = (loan_payment + insurance + gas + oil + tires + 
+		maintenance);
+	total_annually = total_monthly * 12;
+
+	cout << "Your total monthly costs incurred from operating your automobile "
+			"is " << total_monthly << endl;
+	cout << "Your total annual costs incurred from operating your automobile "
+		"is " << total_annually << endl;
 }
 
+
+
 void Question_12() {
+	double f, c;
 
 	cout << "Question 12 - Celsius to Fahrenheit" << endl;
 	cout << "Write a program that converts Celsius temperatures to Fahrenheit "
@@ -611,21 +645,47 @@ void Question_12() {
 	cout << "F is the Fahrenheit temperature, and C is the Celsius "
 			"temperature. "<< endl;
 
+	cout << "\t Answer:" << endl;
+	cout << "Enter the degrees in Celsius:" << endl;
+	cin >> c;
+
+	f = ((9 / 5) * c) + 32;
+
+	cout << "That temperature in Fahrenheit is " << f << " degrees." << endl;
 }
 
 void Question_13() {
+	double YEN_PER_DOLLAR, EUROS_PER_DOLLAR, dollar, yen, euro;
 
 	cout << "Question 13 - Currency" << endl;
 	cout << "Write a program that will convert U.S. dollar amounts to Japanese "
-		"yen and to euros, storing the conversion factors in the constant s"    
-		"YEN_PER_DOLLAR and EUROS_PER_DOLLAR. To get the most up-to-date " 
-		"exchange rates, search the Internet using the term "
-		"“currency exchange rate”. If you cannot find the most recent "
-		"exchange rates, use the following: " << endl;
-	cout << "1 Dollar = 98.93 Yen" << endl << "1 Dollar = 0.74 Euros" << endl;
+			"yen and to euros, storing the conversion factors in the constants"    
+			"YEN_PER_DOLLAR and EUROS_PER_DOLLAR. To get the most up-to-date " 
+			"exchange rates, search the Internet using the term "
+			"“currency exchange rate”. If you cannot find the most recent "
+			"exchange rates, use the following: " << endl;
+	cout << "1 Dollar = 98.93 Yen" << endl << "1 Dollar = 0.74 euros" << endl;
+
+	cout << "\t Answer:" << endl;
+	cout << "Enter the amount of U.S. dollars you want to convert to yen and euros" 
+		 << endl;
+	cin >> dollar;
+
+	YEN_PER_DOLLAR = 110.87;
+	EUROS_PER_DOLLAR = 0.84;
+
+	yen = YEN_PER_DOLLAR * dollar;
+	euro = EUROS_PER_DOLLAR * dollar;
+
+	cout << setprecision(2);
+	cout << dollar << " U.S. dollars is equivalent to " << yen << " yen and "
+		<< euro << " euros." << endl;
 }
 
 void Question_14() {
+	string month;
+	int year;
+	double total_cash, product_sales, county_tax, state_tax;
 
 	cout << "Question 14 - Monthly Sales Tax" << endl;
 	cout << "A retail company must file a monthly sales tax report listing "
@@ -647,9 +707,32 @@ void Question_14() {
 		"State Sales Tax:     $  1002.75 " << endl <<
 		"Total Sales Tax:     $  1504.13 " << endl;
 
+	cout << "\t Answer:" << endl;
+	cout << "Enter Month: " << endl;
+	cin >> month;
+
+	cout << "Enter year "<< endl;
+	cin >> year;
+
+	cout << "Enter the total amount collected at the cash register" << endl;
+	cin >> total_cash;
+
+	product_sales = total_cash / 1.06;
+	county_tax = product_sales * .02;
+	state_tax = product_sales * .04;
+
+	cout << "Month                : " << month << endl;
+	cout << "-----------------------------" << endl <<
+		"Total Collected      $ " << setprecision(2) << fixed << total_cash << endl <<
+		"Sales:               $ " << product_sales << endl <<
+		"County Sales Tax:    $ " << county_tax << endl <<
+		"State Sales Tax:     $ " << state_tax << endl <<
+		"Total Sales Tax:     $ " << (county_tax + state_tax) << endl;
+
 }
 
 void Question_15() {
+	double property_value, assessment_value, tax;
 
 	cout << "Question 15 - Property Tax" << endl;
 	cout << "A county collects property taxes on the assessment value of "
@@ -660,9 +743,20 @@ void Question_15() {
 			"$45. Write a program that asks for the actual value of a piece of "
 			"property and displays the assessment value and property tax." 
 		<< endl;
+
+	cout << "\t Answer:" << endl;
+	cout << "What is the actual value of the property?" << endl;
+	cin >> property_value;
+
+	assessment_value = property_value * .6;
+	tax = assessment_value * .0075;
+
+	cout << "The assessment value of the property is $" << assessment_value <<
+		" and the tax is $" << tax << "." << endl;
 }
 
 void Question_16() {
+	double property_value, assessment_value, tax;
 
 	cout << "Question 16 - Senior Citizen Property Tax" << endl;
 	cout << "Madison County provides a $5,000 homeowner exemption for its "
@@ -679,9 +773,25 @@ void Question_16() {
 			"report how much annual property tax a senior homeowner will be "
 			"charged for this property and what the quarterly tax bill will be "
 		<< endl;
+
+	cout << "\t Answer:" << endl;
+	cout << "What is the actual value of the property?" << endl;
+	cin >> property_value;
+
+	cout << "Enter the tax rate" << endl;
+	cin >> tax;
+
+	assessment_value = (property_value * .6) - 5000;
+	tax = assessment_value * (tax/100);
+
+	cout << "The assessment value of the property is $" << assessment_value <<
+		" and the annual tax is $" << tax << ". The quarterly payment would be $" 
+		<< (tax/4) << "." << endl;
 }
 
+
 void Question_17() {
+	int num1, num2, sum;
 
 	cout << "Question 17 - Math Tutor" << endl;
 	cout << "Write a program that can be used as a math tutor for a young "
@@ -691,9 +801,25 @@ void Question_17() {
 			"the answer, he or she can press a key and the program will "
 			"display the correct solution: 247+129 = 376 " << endl;
 
+	cout << "\t Answer:" << endl;
+
+	unsigned seed = time(0);
+	srand(seed);
+
+	num1 = rand();
+	num2 = rand();
+	sum = num1 + num2;
+
+	cout << num1 << " + " << num2 << " = " << endl;
+
+	cout << "Press any key to check the answer" << endl;
+	cin.ignore();
+	cin.get();
+	cout << num1 << " + " << num2 << " = " << sum << endl;
 }
 
 void Question_18() {
+	double principal, rate, num, interest, bal;
 
 	cout << "Question 18 - Interest Earned" << endl;
 	cout << "Assuming there are no deposits other than the original "
@@ -704,15 +830,36 @@ void Question_18() {
 			"compounded during a year (T is 4 if the interest is compounded "
 			"quarterly). Write a program that asks for the principal, the "
 			"interest rate, and the number of times the interest is "
-			"compounded. It should display a report similar t0:" << endl <<
+			"compounded. It should display a report similar to:" << endl <<
 			"Interest Rate:           4.25%"
 			"Times Compounded:          12 "
 			"Principal:          $ 1000.00 "
 			"Interest:           $   43.34 "
 			"Amount in Savings:  $ 1043.34 " << endl;
+
+	cout << "\t Answer:" << endl;
+	cout << "Enter the principal:" << endl;
+	cin >> principal;
+	
+	cout << "Enter the interest rate:" << endl;
+	cin >> rate;
+
+	cout << "Enter the number of times the interest is compounded" << endl;
+	cin >> num;
+
+	bal = principal * pow((1 + (rate/100) / num),num);
+	interest = bal - principal;
+
+	cout << "Interest Rate:          " << rate << "%" << endl <<
+		"Times Compounded:       " << num << endl;
+	cout << right << setw(10) << setprecision(2) << showpoint << fixed;
+	cout <<	"Principal:           $  " << principal << endl <<
+			"Interest:            $  " << interest << endl <<
+			"Amount in Savings:   $  " << bal << endl;
 }
 
 void Question_19() {
+	double loan, rate, num, monthly, interest;
 
 	cout << "Question 19 - Monthly Payments" << endl;
 	cout << "The monthly payment on a loan may be calculated by the following "
@@ -729,9 +876,30 @@ void Question_19() {
 			"Amount Paid Back:       $ 11957.15 "
 			"Interest Paid:          $  1957.15 " << endl;
 
+	cout << "\t Answer:" << endl;
+	cout << "Enter the loan amount:" << endl;
+	cin >> loan;
+
+	cout << "Enter the monthly interest rate:" << endl;
+	cin >> rate;
+
+	cout << "Enter the number of payments: " << endl;
+	cin >> num;
+
+	monthly = ((rate * (pow((1 + rate), num))) / (pow((1 + rate), num))-1) * loan;
+
+	cout << "Loan Amount:           $" << loan << endl <<
+			"Monthly Interest Rate:  " << rate << "%" << endl <<
+			"Number of Payments:     " << num << endl <<
+			"Monthly Payment:       $" << monthly << endl <<
+			"Amount Paid Back:      $" << (monthly * num) << endl <<
+			"Interest Paid:         $" << ((monthly * num) - loan) << endl;
+
 	}
 
 void Question_20() {
+	const double pi = 3.14159;
+	double area, diam, r, slices;
 
 	cout << "Question 20 - Pizza Pi" << endl;
 	cout << "Joe’s Pizza Palace needs a program to calculate the number of "
@@ -749,15 +917,27 @@ void Question_20() {
 		"• The area of the pizza is calculated with this formula:"
 		<< endl << "Area = pi*r^2" << endl <<
 		"NOTE: pi is the Greek letter pi. 3.14159 can be used as its "
-		"value. The variable  r is the radius of the pizza. Divide the "
+		"value. The variable r is the radius of the pizza. Divide the "
 		"diameter by 2 to get the radius" << endl <<
 		"Make sure the output of the program displays the number of "
 		"slices in fixed point notation, rounded to one decimal place of "
 		"precision. Use a named constant for pi." << endl;
 
+	cout << "\t Answer:" << endl;
+	cout << "Enter the diameter of the pizza in inches:" << endl;
+	cin >> diam;
+
+	r = diam / 2.0;
+	area = pi * r * r;
+	slices = area / 14.125;
+
+	cout << setprecision(1) << fixed;
+	cout << "This pizza can be divided into " << slices << " slices." << endl;
 }
 
 void Question_21() {
+	const double pi = 3.14159;
+	double num, diam, area, r, slices, pizzas;
 
 	cout << "Question 21 - How Many Pizzas " << endl;
 	cout << "Modify the program you wrote in Programming Challenge 18 "
@@ -767,9 +947,25 @@ void Question_21() {
 			"number of people who will be at the party and for the diameter "
 			"of the pizzas to be ordered. It should then calculate and "
 			"display the number of pizzas to purchase." << endl;
+
+	cout << "\t Answer:" << endl;
+	cout << "Enter the number of people attending a party:" << endl;
+	cin >> num;
+
+	cout << "Enter the diameter of the pizza being ordered: " << endl;
+	cin >> diam;
+
+	r = diam / 2.0;
+	area = pi * r * r;
+	slices = area / 14.125;
+	pizzas = ((num * slices) / 8);
+
+		cout << "You need " << (num * slices) << " slices. Assuming 8 slices in box, "
+		"you need " << (pizzas) << " to feed the party goers." << endl;
 }
 
 void Question_22() {
+	double angle;
 
 	cout << "Question 22 - Angle Calculator" << endl;
 	cout << "Write a program that asks the user for an angle, entered in "
@@ -778,9 +974,19 @@ void Question_22() {
 			"to determine these values.) The output should be displayed in "
 			"fixed-point notation, rounded to four decimal places of precision."
 		<< endl;
+
+	cout << "\t Answer:" << endl;
+	cout << "Enter an angle (in radians):" << endl;
+	cin >> angle;
+
+	cout << setprecision(4) << fixed;
+	cout << "Sin of angle " << angle << " is " << (sin(angle)) << endl;
+	cout << "Cos of angle " << angle << " is " << (cos(angle)) << endl;
+	cout << "Tan of angle " << angle << " is " << (tan(angle)) << endl;
 }
 
 void Question_23() {
+	double buy_price, sell_price, buy_com, sell_com, share_num, total;
 
 	cout << "Question 23 - Stock Transition Program" << endl;
 	cout << "Last month Joe purchased some stock in Acme Software, Inc. Here "
@@ -806,9 +1012,27 @@ void Question_23() {
 		"stock and paying the two commissions to his broker. (If the amount "
 		"of profit that your program displays is a negative number, then Joe "
 		"lost money on the transaction" << endl;
+
+	cout << "\t Answer:" << endl;
+
+	share_num = 1000;
+	buy_price = share_num * 45.5;
+	buy_com = buy_price * .02;
+	sell_price = share_num * 56.9;
+	sell_com = sell_price * .2;
+	total = sell_price - buy_price - buy_com - sell_com;
+
+	cout << right << setw(5) << setprecision(2) << fixed;
+	cout << "Amount paid of stock:               $" << buy_price << endl <<
+			"Amount of commission paid:          $" << buy_com << endl <<
+			"Amount stock was sold for:          $" << sell_price << endl <<
+			"Amount of commission when selling:  $" << sell_com << endl <<
+			"Total profit/loss:                  $" << total << endl;
 }
 
 void Question_24() {
+	string name, city, college, profession, animal, pet;
+	int age;
 
 	cout << "Question 24 - Word Game" << endl;
 	cout << "Write a program that plays a word game with the user. The "
@@ -825,6 +1049,35 @@ void Question_24() {
 			"the appropriate locations: " << endl << 
 			"There once was a person named NAME who lived in CITY. At the "
 			"age of AGE, NAME went to college at COLLEGE. NAME graduated and "
-			"went to work as a PROFESSION. Then, NAME adopted a(n) ANIMAL named "
-			"PETNAME. They both lived happily ever after!" << endl;
+			"went to work as a PROFESSION. Then, NAME adopted a(n) ANIMAL "
+			"named PETNAME. They both lived happily ever after!" << endl;
+
+	cout << "\t Answer:" << endl;
+	cout << "Enter your name:" << endl;
+	cin >> name;
+
+	cout << "Enter your age:" << endl;
+	cin >> age;
+
+	cout << "Enter the name of a city:" << endl;
+	cin >> city;
+
+	cout << "Enter the name of a college:" << endl;
+	cin >> college;
+
+	cout << "Enter the name of a profession:" << endl;
+	cin >> profession;
+
+	cout << "Enter the name of a type of animal:" << endl;
+	cin >> animal;
+
+	cout << "Enter the name of a pet" << endl;
+	cin >> pet;
+
+	cout << "There once was a person named " << name << " who lived in "
+		 << city << ". At the age of " << age << ", " << name <<
+			" went to college at " << college << ". " << name << 
+			" graduated and went to work as a " << profession << ". Then, " << 
+			name << " adopted a(n) " << animal << " named " << pet << 
+			". They both lived happily ever after!" << endl;
 }
