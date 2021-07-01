@@ -115,7 +115,7 @@ void Menu() {
 		while (choice != QUIT_PROGRAM) {
 
 			cout << endl;
-			cout << "Here are the questions for Chapter 5 - XXXXXX" << endl;
+			cout << "Here are the questions for Chapter 5 - Loops and Files" << endl;
 
 			cout << "\t Question Menu" << endl;
 
@@ -250,7 +250,7 @@ void print_question(int i) {
 }
 
 int main() {
-	cout << "\t Chapter 5: XXXXX " << endl;
+	cout << "\t Chapter 5: Loops and Files " << endl;
 	cout << "This program displays the Programming Challenges in Chapter 5" << endl << endl;
 
 	Menu();
