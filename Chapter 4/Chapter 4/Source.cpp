@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
@@ -7,11 +8,11 @@ const int num = 26;
 
 // I technically do not need these as they are defined before use in main
 // I chose to declare them anyhow to make it easier to see what is going on
-void Print_Question(int);
-void Get_Answer();
-void Next_Question();
+void print_question(int);
+void get_answer();
+void next_question();
 void Menu();
-void Quit_Program();
+void quit_program();
 
 void Question_1();
 void Question_2();
@@ -40,19 +41,19 @@ void Question_24();
 void Question_25();
 void Question_26();
 
-void Get_Answer() {
+void get_answer() {
 	cout << endl << "Press enter to show the solution" << endl;
 	cin.ignore();
 	cin.get();
 }
 
-void Next_Question() {
+void next_question() {
 	cout << endl << "Press enter to continue" << endl;
 	cin.get();
 	cout << endl;
 }
 
-void Quit_Program() {
+void quit_program() {
 	cout << "Thank you for checking out Chapter 4 Programming Assignments! "
 		"Please let me know your thoughts and suggestions! Check out other "
 		"chapters as well! See you later!" << endl << endl;
@@ -120,7 +121,7 @@ void Menu() {
 
 			for (int i = 0; i < num; i++)
 			{
-				cout << i << ". " << num_arr[i] << endl;
+				cout << right << setw(2) << (i + 1) << ". " << num_arr[i] << endl;
 			}
 
 			cout << "What question do you want to look at?" << endl;
@@ -212,7 +213,7 @@ void Menu() {
 				Question_26();
 				break;
 			case QUIT_PROGRAM:
-				Quit_Program();
+				quit_program();
 			}
 
 		}
@@ -220,167 +221,169 @@ void Menu() {
 
 }
 
-void Print_Question(int i) {
+void print_question(int i) {
 
-		string file_name = "Question " + to_string(i) + ".txt";
-		string line;
+	string file_name = "Question " + to_string(i) + ".txt";
+	string line;
 
-		cout << "Reading " << file_name << endl;
+	cout << "Reading " << file_name << endl;
 
-		ifstream file_input;
-		file_input.open(file_name);
+	ifstream file_input;
+	file_input.open(file_name);
 
-		if (file_input)
-		{
-			while (!file_input.eof()) {
+	if (file_input)
+	{
+		while (!file_input.eof()) {
 
-				getline(file_input, line);
-				cout << line << endl;
-			}
-
+			getline(file_input, line);
+			cout << line << endl;
 		}
-		else
-			cout << "Invalid file " << file_name << endl;
 
-		file_input.close();
-		cout << "---------" << endl;
 	}
+	else
+		cout << "Invalid file " << file_name << endl;
 
-	int main() {
-		cout << "\t Chapter X: XXXXX " << endl;
-		cout << "This program displays the Programming Challenges in Chapter 4" << endl << endl;
+	file_input.close();
+	cout << "---------" << endl;
 
-		Menu();
-	}
+	get_answer();
+}
 
+int main() {
+	cout << "\t Chapter X: XXXXX " << endl;
+	cout << "This program displays the Programming Challenges in Chapter 4" << endl << endl;
 
-	void Question_1() {
-		Print_Question(1);
-		Get_Answer();
-	}
-
-	void Question_2() {
-		Print_Question(2);
-		Get_Answer();
-	}
-
-	void Question_3() {
-		Print_Question(3);
-		Get_Answer();
-	}
-
-	void Question_4() {
-		Print_Question(4);
-		Get_Answer();
-	}
-
-	void Question_5() {
-		Print_Question(5);
-		Get_Answer();
-	}
-
-	void Question_6() {
-		Print_Question(6);
-		Get_Answer();
-	}
-
-	void Question_7() {
-		Print_Question(7);
-		Get_Answer();
-	}
-
-	void Question_8() {
-		Print_Question(8);
-		Get_Answer();
-	}
+	Menu();
+}
 
 
-	void Question_9() {
-		Print_Question(9);
-		Get_Answer();
-	}
+void Question_1() {
+	print_question(1);
+	
+}
 
-	void Question_10() {
-		Print_Question(10);
-		Get_Answer();
-	}
+void Question_2() {
+	print_question(2);
 
-	void Question_11() {
-		Print_Question(11);
-		Get_Answer();
-	}
+}
 
-	void Question_12() {
-		Print_Question(12);
-		Get_Answer();
-	}
+void Question_3() {
+	print_question(3);
+	
+}
 
-	void Question_13() {
-		Print_Question(13);
-		Get_Answer();
-	}
+void Question_4() {
+	print_question(4);
+	
+}
 
-	void Question_14() {
-		Print_Question(14);
-		Get_Answer();
-	}
+void Question_5() {
+	print_question(5);
+	
+}
 
-	void Question_15() {
-		Print_Question(15);
-		Get_Answer();
-	}
+void Question_6() {
+	print_question(6);
+	
+}
 
-	void Question_16() {
-		Print_Question(16);
-		Get_Answer();
-	}
+void Question_7() {
+	print_question(7);
+	
+}
 
-	void Question_17() {
-		Print_Question(17);
-		Get_Answer();
-	}
+void Question_8() {
+	print_question(8);
+	
+}
 
-	void Question_18() {
-		Print_Question(18);
-		Get_Answer();
-	}
 
-	void Question_19() {
-		Print_Question(19);
-		Get_Answer();
-	}
+void Question_9() {
+	print_question(9);
+	
+}
 
-	void Question_20() {
-		Print_Question(20);
-		Get_Answer();
-	}
+void Question_10() {
+	print_question(10);
+	
+}
 
-	void Question_21() {
-		Print_Question(21);
-		Get_Answer();
-	}
+void Question_11() {
+	print_question(11);
+	
+}
 
-	void Question_22() {
-		Print_Question(22);
-		Get_Answer();
-	}
+void Question_12() {
+	print_question(12);
+	
+}
 
-	void Question_23() {
-		Print_Question(23);
-		Get_Answer();
-	}
+void Question_13() {
+	print_question(13);
+	
+}
 
-	void Question_24() {
-		Print_Question(24);
-		Get_Answer();
-	}
+void Question_14() {
+	print_question(14);
+	
+}
 
-	void Question_25() {
-		Print_Question(25);
-		Get_Answer();
-	}
+void Question_15() {
+	print_question(15);
+	
+}
 
-	void Question_26() {
-		Print_Question(26);
-		Get_Answer();
-	}
+void Question_16() {
+	print_question(16);
+	
+}
+
+void Question_17() {
+	print_question(17);
+	
+}
+
+void Question_18() {
+	print_question(18);
+	
+}
+
+void Question_19() {
+	print_question(19);
+	
+}
+
+void Question_20() {
+	print_question(20);
+	
+}
+
+void Question_21() {
+	print_question(21);
+	
+}
+
+void Question_22() {
+	print_question(22);
+	
+}
+
+void Question_23() {
+	print_question(23);
+	
+}
+
+void Question_24() {
+	print_question(24);
+	
+}
+
+void Question_25() {
+	print_question(25);
+	
+}
+
+void Question_26() {
+	print_question(26);
+	
+}
