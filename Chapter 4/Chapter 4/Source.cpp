@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <ctime>
 #include <string>
 using namespace std;
 
@@ -122,7 +123,7 @@ void Menu() {
 		while (choice != QUIT_PROGRAM) {
 
 			cout << endl;
-			cout << "Here are the questions for Chapter 4 - Making Decisions" 
+			cout << "Here are the questions for Chapter 4 - Making Decisions"
 				<< endl;
 
 			cout << "\t Question Menu" << endl;
@@ -259,7 +260,7 @@ void print_question(int i) {
 
 int main() {
 	cout << "\t Chapter 4: Making Decisions " << endl;
-	cout << "This program displays the Programming Challenges in Chapter 4" 
+	cout << "This program displays the Programming Challenges in Chapter 4"
 		<< endl << endl;
 
 	Menu();
@@ -268,7 +269,7 @@ int main() {
 
 void Question_1() {
 	double num1, num2;
-	
+
 	print_question(1);
 
 	cout << "Enter two numbers, separated by a space " << endl;
@@ -276,8 +277,8 @@ void Question_1() {
 
 	if (num1 > num2)
 		cout << num1 << " is bigger than " << num2 << endl;
-	else 
-		cout << num2 << " is bigger than " << num1 << endl;	
+	else
+		cout << num2 << " is bigger than " << num1 << endl;
 
 	return_to_menu();
 }
@@ -325,13 +326,13 @@ void Question_2() {
 	default:
 		cout << "You have entered a number outside of the 1-10 range." << endl;
 	}
-	
+
 	return_to_menu();
 }
 
 void Question_3() {
 	int month, day, year;
-	
+
 	print_question(3);
 
 	cout << "Enter the month, day and the last two digits of the year that you "
@@ -348,10 +349,10 @@ void Question_3() {
 
 void Question_4() {
 	double l1, l2, w1, w2;
-	
+
 	print_question(4);
-	
-	cout << "Enter the length and width of the first rectangle separated by a " 
+
+	cout << "Enter the length and width of the first rectangle separated by a "
 		"space " << endl;
 	cin >> l1 >> w1;
 
@@ -371,20 +372,20 @@ void Question_4() {
 
 void Question_5() {
 	double weight, height, BMI;
-	
+
 	print_question(5);
-	
+
 	cout << "Enter the weight (in pounds) and height (in inches), separated "
 		"by a space : " << endl;
 	cin >> weight >> height;
 
-	BMI = (weight * 703) / pow(height,2);
+	BMI = (weight * 703) / pow(height, 2);
 
 	if (BMI > 25)
 		cout << "This person is considered to be overweight" << endl;
-	else if (BMI<18.5)
+	else if (BMI < 18.5)
 		cout << "This person is considered to be underweight" << endl;
-	else if ((BMI>18.5)&&(BMI<25))
+	else if ((BMI > 18.5) && (BMI < 25))
 		cout << "This person is considered to be at the optimal weight" << endl;
 
 	return_to_menu();
@@ -392,9 +393,9 @@ void Question_5() {
 
 void Question_6() {
 	double mass;
-	
+
 	print_question(6);
-	
+
 	cout << "Enter mass:" << endl;
 	cin >> mass;
 
@@ -408,9 +409,9 @@ void Question_6() {
 
 void Question_7() {
 	double sec, min, hr, day;
-	
+
 	print_question(7);
-	
+
 	cout << "Enter the number of seconds: " << endl;
 	cin >> sec;
 
@@ -432,54 +433,146 @@ void Question_7() {
 		cout << sec << " seconds is equal to " << day << " days" << endl;
 	}
 
-	
-
 	return_to_menu();
 }
 
 void Question_8() {
+	string color1, color2;
+
 	print_question(8);
-	
+
+	cout << "Enter the names of two primary colors (all lowercase), separated "
+		"by a space: " << endl;
+	cin >> color1 >> color2;
+
+	if (((color1 == "red") && (color2 == "blue")) || ((color2 == "red") &&
+		(color1 == "blue")))
+		cout << "When you mix red and blue, you get purple" << endl;
+	else if (((color1 == "red") && (color2 == "yellow")) || ((color2 == "red")
+		&& (color1 == "yellow")))
+		cout << "When you mix red and yellow, you get orange" << endl;
+	else if (((color1 == "blue") && (color2 == "yellow")) ||
+		((color2 == "blue") && (color1 == "yellow")))
+		cout << "When you mix blue and yellow, you get green" << endl;
+	else
+		cout << "You did not enter \"red,\"  \"blue,\" or \"yellow.\" " << endl;
 
 	return_to_menu();
 }
 
 
 void Question_9() {
+	double penny, nickle, dime, quarter, total;
+
 	print_question(9);
+
+	cout << "Enter the number of pennies, nickels, dimes and quarters, each "
+		"separated by a space: " << endl;
+	cin >> penny >> nickle >> dime >> quarter;
+
+	// While the input above finds the *number* of the coins, this will find 
+	// the *value* of said coins
+	penny = .01 * penny;
+	nickle = .05 * nickle;
+	dime = .1 * dime;
+	quarter = .25 * quarter;
+	total = penny + nickle + dime + quarter;
+
+	if (total == 1.0)
+		cout << "Congratulations! You've won the game!" << endl;
+	else
+		cout << "Bummer. You didn't win this time." << endl;
 
 	return_to_menu();
 }
 
 void Question_10() {
+	int month, year;
+	bool is_leap_year;
+
 	print_question(10);
-	
+
+	cout << "Enter a month (1-20): " << endl;
+	cin >> month;
+	cout << "Enter a year:" << endl;
+	cin >> year;
+
+	if ((year % 100) == 0)
+	{
+		if ((year % 400) == 0)
+			is_leap_year = true;
+	}
+	else if ((year % 4) == 0)
+		is_leap_year = true;
+
+	if ((month == 4) || (month == 6) || (month == 9) || (month == 11))
+		cout << "30 days" << endl;
+	else if ((is_leap_year == true) && (month == 2))
+		cout << "28 days" << endl;
+	else
+		cout << "31 days" << endl;
+
 	return_to_menu();
 }
 
 void Question_11() {
+	int num1, num2, sum;
+
 	print_question(11);
+
+	unsigned seed = time(0);
+	srand(seed);
+
+	num1 = rand();
+	num2 = rand();
+	sum = num1 + num2;
+
+	cout << num1 << " + " << num2 << " = " << endl;
+
+	cout << "Enter your answer: " << endl;
+	cin >> sum;
+
+	if (sum == (num1 + num2))
+		cout << "Congratulations! You got it right!" << endl;
+	else
+		cout << "Bummer. The right answer was " << (num1 + num2) << endl;
 
 	return_to_menu();
 }
 
 void Question_12() {
+	int units_sold, full_cost, discount;
+
 	print_question(12);
-	
+
+	cout << "Enter the number of units sold: " << endl;
+	cin >> units_sold;
+
+	full_cost = (units_sold * 99);
+
+	if ((units_sold > 9) && (units_sold < 20))
+		cout << "The total cost of the purchase is $" << (full_cost * .8) << endl;
+	if ((units_sold > 19) && (units_sold < 50))
+		cout << "The total cost of the purchase is $" << (full_cost * .7) << endl;
+	if ((units_sold > 49) && (units_sold < 100))
+		cout << "The total cost of the purchase is $" << (full_cost * .6) << endl;
+	if (units_sold > 99)
+		cout << "The total cost of the purchase is $" << (full_cost * .5) << endl;
 
 	return_to_menu();
 }
 
 void Question_13() {
 	print_question(13);
-	
+
+
 
 	return_to_menu();
 }
 
 void Question_14() {
 	print_question(14);
-	
+
 
 	return_to_menu();
 }
@@ -492,7 +585,7 @@ void Question_15() {
 
 void Question_16() {
 	print_question(16);
-	
+
 	return_to_menu();
 }
 
@@ -510,7 +603,7 @@ void Question_18() {
 
 void Question_19() {
 	print_question(19);
-	
+
 	return_to_menu();
 }
 
@@ -522,36 +615,36 @@ void Question_20() {
 
 void Question_21() {
 	print_question(21);
-	
+
 	return_to_menu();
 }
 
 void Question_22() {
 	print_question(22);
-	
+
 	return_to_menu();
 }
 
 void Question_23() {
 	print_question(23);
-	
+
 	return_to_menu();
 }
 
 void Question_24() {
 	print_question(24);
-	
+
 	return_to_menu();
 }
 
 void Question_25() {
 	print_question(25);
-	
+
 	return_to_menu();
 }
 
 void Question_26() {
 	print_question(26);
-	
+
 	return_to_menu();
 }

@@ -6,6 +6,6 @@ Write a program that asks the user to enter the month (letting the user enter an
 2. If the year is not divisible by 100, then it is a leap year if and if only it is divisible by 4. For example, 2008 is a leap year but 2009 is not.  
 
 Here is a sample run of the program: 
-Enter a month (1-12):  2 [ Enter] 
+Enter a month (1-12):  2 [Enter] 
 Enter a year:  2008 [Enter] 
 29 days
