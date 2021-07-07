@@ -678,29 +678,113 @@ void Question_15() {
 
 // Redo this but with the updates instructions at the bottom asd
 void Question_16() {
-	string name1, name2, name3, slowest, middle, fastest;
-	double time1, time2, time3;
+	string name1, name2, name3, slowest_name, middle_name, fastest_name;
+	double time1, time2, time3, slowest, middle, fastest;
 
 	print_question(16);
+
+	// I first tried a brute force method you can find at the end. I then 
+	// thought to make this more elegant and came up with this solution
 
 	cout << "Enter the name of the first runner and their time separated by "
 		"a space :" << endl;
 	cin >> name1 >> time1;
 
-	if (time1 > 0)
+	if (time1 < 0)
+	{
+		
+		slowest = middle = fastest = time1;
+		slowest_name = middle_name = fastest_name = name1;
+
+		cout << "Enter the name of the second runner and their time separated "
+			"by a space :" << endl;
+
+		cin >> name2 >> time2;
+
+		if (time2 < 0)
+		{
+			cout << "Enter the name of the third runner and their time separated "
+				"by a space :" << endl;
+			cin >> name3 >> time3;
+
+			if (time3 < 0)
+			{
+				if (time2 < time1)
+				{
+					fastest = time2;
+					fastest_name = time2;
+
+					if (time3 < time2)
+					{
+						fastest = time3;
+						fastest_name = name3;
+
+						middle = time2;
+						middle_name = name2;
+					}
+					else if (time3 < time1)
+					{
+						middle = time3;
+						middle_name = name3;
+					}
+					else
+					{
+						slowest = time3;
+						slowest_name = name3;
+					}
+				}
+				else
+				{
+					slowest = middle = time2;
+					slowest_name = middle_name = name2;
+
+					if (time3 < time1)
+					{
+						fastest = time3;
+						fastest_name = name3;
+
+						middle = time1;
+						middle_name = name1;
+					}
+					else if (time3 < time2)
+					{
+						middle = time3;
+						middle_name = name3;
+					}
+					else
+					{
+						slowest = time3;
+						slowest_name = name3;
+					}
+				}
+			}
+			cout << "Please enter positive values only!" << endl;
+		}
+		cout << "Please enter positive values only!" << endl;
+	}
+	cout << "Please enter positive values only!" << endl;
+
+	/*
+	This is the brute force method I initially tried. 
+
+	cout << "Enter the name of the first runner and their time separated by "
+		"a space :" << endl;
+	cin >> name1 >> time1;
+
+	if (time1 < 0)
 	{
 		cout << "Enter the name of the second runner and their time separated by "
 			"a space :" << endl;
 
 		cin >> name2 >> time2;
 
-		if (time2 > 0)
+		if (time2 < 0)
 		{
 			cout << "Enter the name of the third runner and their time separated by "
 				"a space :" << endl;
 			cin >> name3 >> time3;
 
-			if (time3 > 0)
+			if (time3 < 0)
 			{
 				if ((time1 < time2) && (time1 < time3))
 				{
@@ -751,20 +835,115 @@ void Question_16() {
 		cout << "Please enter positive values only!" << endl;
 	}
 	cout << "Please enter positive values only!" << endl;
+	*/
 
-	cout << "The first place runner is " << fastest << ", the second place runner "
-		<< "is " << middle << ", and the third place runner is " << slowest << endl;
+	cout << "The first place runner with the time of "<< fastest << " is " << 
+		fastest_name << ", the second place runner with the time of " << middle
+		<< " is " << middle_name << ", and the third place runner is " << 
+		" with the time of " << slowest << " is " << slowest_name <<  endl;
 
 	return_to_menu();
 }
 
 void Question_17() {
-	string name, date1, date2, date3, lowest, middle, highest, lowest_date,
+	string name, date1, date2, date3, lowest_date,
 		mid_date, highest_date;
-	double height1, height2, height3;
+	double height1, height2, height3, lowest, middle, highest;
 
 	print_question(17);
+	
+	cout << "Enter the name of the pole vaulter: " << endl;
+	cin.ignore();
+	getline(cin, name);
+	
+	cout << "Enter the date of the of the best vaults: " << endl;
+	cin.ignore();
+	getline(cin, date1);
+	
 
+	cout << "Enter the height of the of vault on that day: " << endl;
+	cin >> height1;
+
+	lowest = middle = highest = height1;
+	lowest_date = mid_date = highest_date = date1;
+	
+	cout << "Enter the date of another of the best vaults: " << endl;
+	cin.ignore();
+	getline(cin, date2);
+	
+	cout << "Enter the height of the of vault on that day: " << endl;
+	cin >> height2;
+
+	// At this point, there are two options. Either the first height is indeed 
+	// the tallest and best jump or not. if the former is the case, at this point,  
+	// highest will be height1, middle is height2 and lowest is still height1 
+	// (it hasn't been changed yet)
+	// If the latter is the case, then highest is now height2 (haven been changed 
+	// by the decision above), middle is height1 (it hasn't been changed yet) 
+	// and lowest is height1 as well (it too has yet to be changed)
+	
+	cout << "Enter the date of the of a third best vault: " << endl;
+	cin.ignore();
+	getline(cin, date3);
+
+	cout << "Enter the height of the of vault on that day: " << endl;
+	cin >> height3;
+
+	if (height2 > height1)
+	{
+		highest = height2; 
+		highest_date = height2;
+
+		if (height3 > height2)
+		{
+			highest = height3;
+			highest_date = date3;
+
+			middle = height2;
+			mid_date = date2;
+		}
+		else if (height3 > height1)
+		{
+			middle = height3;
+			mid_date = date3;
+		}
+		else
+		{
+			lowest = height3;
+			lowest_date = date3;
+		}
+	}
+	else
+	{
+		lowest = middle = height2;
+		lowest_date = mid_date = date2;
+
+		if (height3 > height1)
+		{
+			highest = height3;
+			highest_date = date3;
+
+			middle = height1;
+			mid_date = date1;
+		}
+		else if (height3 > height2)
+		{
+			middle = height3;
+			mid_date = date3;
+		}
+		else
+		{
+			lowest = height3;
+			lowest_date = date3;
+		}	
+	}
+	
+	// Below is my first trial. I did it the brute force way but then thought I
+	// could make it more elegant so I changed the answer
+
+	/*
+	
+	
 	cout << "Enter the name of the pole vaulter: " << endl;
 	cin.ignore();
 	getline(cin, name);
@@ -860,11 +1039,7 @@ void Question_17() {
 			}
 		}
 	}
-
-	// Do this: Take the first input and put it in everything - highest, middle lowest. Take the second value and compare it 
-	// with the one input previously. If it is higher, switch out the higher. If it is lower, put it in lowest. 
-	// Then take the third value and compare it to the other two values and then compare asdfas
-
+	*/
 
 	cout << "The best vault was " << highest << ", which occurred on "
 		<< highest_date << "." << endl << "The second best vault was "
@@ -1027,54 +1202,22 @@ void Question_22() {
 	// because it would be more straight forward, if less elegant. It would also
 	// be a bit easier than working with two different switch statements. 
 
-	// Make it simple - just one if for each boiling and freezing temp asd
-
-	if (temp <= -362)
-	{
+	if (temp >= -362)
 		cout << "Oxygen will freeze at this temperature" << endl;
+	if (temp >= -306)
+		cout << "Oxygen will boil at this temperature" << endl;
+	if (temp >= -173)
 		cout << "Ethyl alcohol will freeze at this temperature" << endl;
+	if (temp >= -38)
 		cout << "Mercury will freeze at this temperature" << endl;
+	if (temp >= 32)
 		cout << "Water will freeze at this temperature" << endl;
-	}
-	else if (temp <= -306)
-	{
-		cout << "Oxygen will boil at this temperature" << endl;
-		cout << "Ethyl alcohol will freeze at this temperature" << endl;
-		cout << "Mercury will freeze at this temperature" << endl;
-		cout << "Water will freeze at this temperature" << endl;
-	}
-	else if (temp <= -173)
-	{
-		cout << "Oxygen will boil at this temperature" << endl;
-		cout << "Ethyl alcohol will freeze at this temperature" << endl;
-		cout << "Mercury will freeze at this temperature" << endl;
-		cout << "Water will freeze at this temperature" << endl;
-	}
-	else if (temp <= -38)
-	{
-		cout << "Oxygen will boil at this temperature" << endl;
-		cout << "Mercury will freeze at this temperature" << endl;
-		cout << "Water will freeze at this temperature" << endl;
-	}
-	else if (temp <= 32)
-	{
-		cout << "Oxygen will boil at this temperature" << endl;
-		cout << "Water will freeze at this temperature" << endl;
-	}
-	else if (temp >= 172)
-	{
-		cout << "Oxygen will boil at this temperature" << endl;
-		cout << "Water will freeze at this temperature" << endl;
+	if (temp >= 172)
 		cout << "Ethyl alcohol will boil at this temperature" << endl;
-	}
-	else if (temp >= 212)
-	{
-		cout << "Oxygen will boil at this temperature" << endl;
-		cout << "Ethyl alcohol will boil at this temperature" << endl;
+	if (temp >= 212)
 		cout << "Water will boil at this temperature" << endl;
-	}
-	else
-		cout << "Nothing happens at this temperature." << endl;
+	if (temp >= 676)
+		cout << "Mercury will boil at this temperature" << endl;
 
 	return_to_menu();
 }
@@ -1242,7 +1385,7 @@ void Question_25() {
 
 void Question_26() {
 	char choice;
-	double min_used, min_extra, savings, charges = 0, b_charges;
+	double min_used, min_extra, savings, charges = 0, b_charges, b_savings;
 
 	print_question(26);
 
@@ -1265,10 +1408,9 @@ void Question_26() {
 			min_extra = (min_used - 900) < 0 ? 0 : (min_used - 900);
 			b_charges = 59.99 + (min_extra * .40);
 
-			// Claculate the B charges and then compare it to A to generate b savings 
+			b_savings = b_charges - charges;
 
-			savings = charges - 59.99;
-			cout << "You would have saved " << savings << " if you had "
+			cout << "You would have saved " << b_savings << " if you had "
 				"switched to Package B. " << endl;
 
 			if (charges > 69.99)
@@ -1308,62 +1450,86 @@ void Question_26() {
 
 void Question_27() {
 	string month;
-	int num_days;
-	char choice, max_min;
+	int num_days = 0, max_min;
+	char choice;
 	double min_used, min_extra, savings, charges = 0;
 
 	print_question(26);
 
-	cout << "Enter the name of the month (no caps): " << endl;
+	cout << "Enter the name of the month, capitalizing the first letter "
+		"(ex. January): " << endl;
 	cin >> month;
 
 	if (month == "January")
 		num_days = 31;
 	else if (month == "February")
 		num_days = 28;
-	//... Finish this asd
+	else if (month == "March")
+		num_days = 31;
+	else if (month == "April")
+		num_days = 30;
+	else if (month == "May")
+		num_days = 31;
+	else if (month == "June")
+		num_days = 30;
+	else if (month == "July")
+		num_days = 31;
+	else if (month == "August")
+		num_days = 31;
+	else if (month == "September")
+		num_days = 30;
+	else if (month == "October")
+		num_days = 31;
+	else if (month == "November")
+		num_days = 30;
+	else if (month == "December")
+		num_days = 31;
 
 	switch (num_days)
 	{
 	case 28:
-		max_min = 672 * 60;
+		max_min = 672 * 60.0;
 		break;
 	case 30:
-		max_min = 720 * 60;
+		max_min = 720 * 60.0;
 		break;
 	case 31:
-		max_min = 744 * 60;
+		max_min = 744 * 60.0;
 		break;
 	}
 		
-	// Copy this from 25
 	cout << "Enter A, B, or C for the package you have purchased: " << endl;
 	cin >> choice;
 
 	cout << "Enter the number of minutes used: " << endl;
 	cin >> min_used;
 
-	switch (choice)
+	if (min_used <= max_min)
 	{
-	case 'A':
-		// This says: if min_used - 450 is less than 0, then in_extra is 0. 
-		// Else, min_extra is min_used - 450
-		min_extra = (min_used - 450) < 0 ? 0 : (min_used - 450);
-		charges = 39.99 + (min_extra * .45);
+		switch (choice)
+		{
+		case 'A':
+			// This says: if min_used - 450 is less than 0, then in_extra is 0. 
+			// Else, min_extra is min_used - 450
+			min_extra = (min_used - 450) < 0 ? 0 : (min_used - 450);
+			charges = 39.99 + (min_extra * .45);
 
-		break;
-	case 'B':
-		min_extra = (min_used - 900) < 0 ? 0 : (min_used - 900);
-		charges = 59.99 + (min_extra * .40);
+			break;
+		case 'B':
+			min_extra = (min_used - 900) < 0 ? 0 : (min_used - 900);
+			charges = 59.99 + (min_extra * .40);
 
-		break;
-	case 'C':
-		charges = 69.99;
-		break;
-	default:
-		cout << "You did not enter A, B, or C. Goodbye" << endl;
+			break;
+		case 'C':
+			charges = 69.99;
+			break;
+		default:
+			cout << "You did not enter A, B, or C. Goodbye" << endl;
+		}
 	}
-
+	else
+		cout << "The number of minutes used cannot be more than the number of "
+		"minutes in the month" << endl;
 
 	return_to_menu();
 }
