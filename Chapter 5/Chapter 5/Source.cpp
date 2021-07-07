@@ -11,6 +11,7 @@ const int num = 26;
 void print_question(int);
 void get_answer();
 void next_question();
+void return_to_menu();
 void Menu();
 void quit_program();
 
@@ -51,6 +52,12 @@ void next_question() {
 	cout << endl << "Press enter to continue" << endl;
 	cin.get();
 	cout << endl;
+}
+
+void return_to_menu() {
+	cout << endl << "Press enter to return to the menu" << endl;
+	cin.ignore();
+	cin.get();
 }
 
 void quit_program() {
@@ -124,7 +131,7 @@ void Menu() {
 				cout << right << setw(2) << (i + 1) << ". " << num_arr[i] << endl;
 			}
 
-			cout << "What question do you want to look at?" << endl;
+			cout << endl << "What question do you want to look at?" << endl;
 			cin >> choice;
 
 			if (choice < 0 || choice > QUIT_PROGRAM)
@@ -226,8 +233,6 @@ void print_question(int i) {
 	string file_name = "Question " + to_string(i) + ".txt";
 	string line;
 
-	cout << "Reading " << file_name << endl;
-
 	ifstream file_input;
 	file_input.open(file_name);
 
@@ -260,130 +265,166 @@ int main() {
 void Question_1() {
 	print_question(1);
 
+	return_to_menu();
+
 }
 
 void Question_2() {
 	print_question(2);
 
+	return_to_menu();
 }
 
 void Question_3() {
 	print_question(3);
 
+
+	return_to_menu();
 }
 
 void Question_4() {
 	print_question(4);
 
+
+	return_to_menu();
 }
 
 void Question_5() {
 	print_question(5);
 
+
+	return_to_menu();
 }
 
 void Question_6() {
 	print_question(6);
 
+
+	return_to_menu();
 }
 
 void Question_7() {
 	print_question(7);
 
+
+	return_to_menu();
 }
 
 void Question_8() {
 	print_question(8);
 
+
+	return_to_menu();
 }
 
 
 void Question_9() {
 	print_question(9);
 
+	return_to_menu();
 }
 
 void Question_10() {
 	print_question(10);
 
+	return_to_menu();
 }
 
 void Question_11() {
 	print_question(11);
 
+	return_to_menu();
 }
 
 void Question_12() {
 	print_question(12);
 
+
+	return_to_menu();
 }
 
 void Question_13() {
 	print_question(13);
 
+
+	return_to_menu();
 }
 
 void Question_14() {
 	print_question(14);
 
+
+	return_to_menu();
 }
 
 void Question_15() {
 	print_question(15);
 
+	return_to_menu();
 }
 
 void Question_16() {
 	print_question(16);
 
+	return_to_menu();
 }
 
 void Question_17() {
 	print_question(17);
 
+	return_to_menu();
 }
 
 void Question_18() {
 	print_question(18);
 
+	return_to_menu();
 }
 
 void Question_19() {
 	print_question(19);
 
+	return_to_menu();
 }
 
 void Question_20() {
 	print_question(20);
 
+	return_to_menu();
 }
 
 void Question_21() {
 	print_question(21);
 
+	return_to_menu();
 }
 
 void Question_22() {
 	print_question(22);
 
+	return_to_menu();
 }
 
 void Question_23() {
 	print_question(23);
 
+	return_to_menu();
 }
 
 void Question_24() {
 	print_question(24);
 
+	return_to_menu();
 }
 
 void Question_25() {
 	print_question(25);
 
+	return_to_menu();
 }
 
 void Question_26() {
 	print_question(26);
 
+	return_to_menu();
 }
