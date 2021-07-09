@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <time.h>
 #include <string>
 using namespace std;
 
@@ -250,8 +251,6 @@ void print_question(int i) {
 
 	file_input.close();
 	cout << "---------" << endl;
-
-	get_answer();
 }
 
 int main() {
@@ -263,14 +262,35 @@ int main() {
 
 
 void Question_1() {
+	int integer, sum;
+
 	print_question(1);
 
-	return_to_menu();
+	do
+	{
+		cout << "Enter a positive integer value: " << endl;
+		cin >> integer;
 
+	} while (integer < 0);
+
+	sum = 0;
+
+	for (int i = 0; i <= integer; i++)
+		sum += i;
+
+	cout << "The sum of all integers from 0 to " << integer << " is " << sum
+		<< endl;
+
+	return_to_menu();
 }
 
+//asd
 void Question_2() {
+
+
 	print_question(2);
+
+	cout << 'c' << endl;
 
 	return_to_menu();
 }
@@ -278,6 +298,11 @@ void Question_2() {
 void Question_3() {
 	print_question(3);
 
+	cout << "Years:			Amount Risen (in mm):" << endl << "------------"
+		<< "------------" << endl;
+
+	for (int i = 1; i < 26; i++)
+		cout << i << "			" << (i * 1.5) << endl;
 
 	return_to_menu();
 }
@@ -285,6 +310,11 @@ void Question_3() {
 void Question_4() {
 	print_question(4);
 
+	cout << "Minutes:			Calories Burned: " << endl << "-----------"
+		<< "-------------------------" << endl;
+
+	for (int i = 1; i < 7; i++)
+		cout << i * 5 << "				" << (i * 5.0) * 3.6 << endl;
 
 	return_to_menu();
 }
@@ -292,41 +322,228 @@ void Question_4() {
 void Question_5() {
 	print_question(5);
 
+	cout << "Years after increase:			Percent increase: " << endl << "--"
+		<< "--------------------------------" << endl;
+
+	for (int i = 1; i < 6; i++)
+		cout << i << "					 $" << (((i * .04) * 2500.0) + 2500) << endl;
 
 	return_to_menu();
 }
 
 void Question_6() {
+	double speed, hours;
+
 	print_question(6);
 
+	do
+	{
+		cout << "What is the speed of the vehicle in mph? " << endl;
+		cin >> speed;
+
+		cout << "How many hours has it traveled? " << endl;
+		cin >> hours;
+
+	} while ((speed < 0) || (hours < 0));
+
+	cout << "Hour			Distance Traveled" << endl << "------------------------"
+		<< "------------" << endl;
+
+	for (int i = 1; i < hours + 1; i++)
+		cout << i << "			" << (speed * i) << endl;
 
 	return_to_menu();
 }
 
 void Question_7() {
+	int days;
+
 	print_question(7);
 
+	do
+	{
+		cout << "Enter the number of days worked: " << endl;
+		cin >> days;
+	} while (days < 0);
+
+	cout << "Day			Dollars" << endl << "------------------------"
+		<< "------------" << endl << 1 << "			$0.01" << endl;
+
+	for (int i = 1; i < days; i++)
+		cout << i + 1 << "			$" << setprecision(2) << ((pow(2, i)) * .01) << endl;
 
 	return_to_menu();
 }
 
 void Question_8() {
+	double num1, num2, ans;
+	int choice;
+
 	print_question(8);
 
+	cout << "\tMath Problems:" << endl << "1. Addition" << endl <<
+		"2. Subtraction" << endl << "3. Multiplication" << endl <<
+		"4. Division" << endl << "5. Quit" << endl << endl <<
+		"Please enter a choice 1-5:" << endl;
+	cin >> choice;
+
+	unsigned seed = time(0);
+	srand(seed);
+
+	num1 = rand();
+	num2 = rand();
+
+	if (choice != 5)
+	{
+		switch (choice)
+		{
+		case 1:
+			cout << "Addition: " << endl;
+			cout << num1 << " + " << num2 << " = " << endl;
+			cin >> ans;
+
+			if (ans == (num1 + num2))
+				cout << "Congratulations! You got it right!" << endl;
+			else
+				cout << "Bummer. The correct answer was " << (num1 + num2) << endl;
+			break;
+
+		case 2:
+			cout << "Subtraction: " << endl;
+			cout << num1 << " - " << num2 << " = " << endl;
+			cin >> ans;
+
+			if (ans == (num1 - num2))
+				cout << "Congratulations! You got it right!" << endl;
+			else
+				cout << "Bummer. The correct answer was " << (num1 - num2) << endl;
+			break;
+
+		case 3:
+			cout << "Multiplication: " << endl;
+			cout << num1 << " * " << num2 << " = " << endl;
+			cin >> ans;
+
+			if (ans == (num1 * num2))
+				cout << "Congratulations! You got it right!" << endl;
+			else
+				cout << "Bummer. The right answer was " << (num1 * num2) << endl;
+			break;
+
+		case 4:
+			cout << "Division: " << endl;
+			cout << num1 << " / " << num2 << " = " << endl;
+			cin >> ans;
+
+			if (ans == (num1 / num2))
+				cout << "Congratulations! You got it right!" << endl;
+			else
+				cout << "Bummer. The right answer was " << (num1 / num2) << endl;
+			break;
+
+		default:
+			cout << "You did not enter 1-5. Please try again." << endl;
+		}
+	}
+	else
+		cout << "Goodbye" << endl;
 
 	return_to_menu();
 }
 
 
 void Question_9() {
+	int floors, rooms, occupied;
+
 	print_question(9);
+
+
+	cout << "Enter the number of floors the hotel has: " << endl;
+	cin >> floors;
+
+	do {
+		for (int i = 1; i < floors + 1; i++)
+		{
+			if (i == 13)
+				i++;
+
+			do {
+				cout << "Enter the number of rooms on the " << i << "th floor:"
+					<< endl;
+				cin >> rooms;
+
+			} while (rooms < 10);
+
+			rooms += rooms;
+
+			cout << "Enter the number of rooms that are occupied on the " <<
+				i << "th floor: " << endl;
+			cin >> occupied;
+
+			occupied += occupied;
+		}
+	} while (floors < 1);
+
+	cout << "The hotel has " << rooms << " rooms. Of these, " << occupied
+		<< " are occupied and " << (rooms - occupied) << " are not. The "
+		"percentage of occupied rooms is " << (occupied / rooms) * 100
+		<< " percent." << endl;
 
 	return_to_menu();
 }
 
 void Question_10() {
+	int years;
+	double inches, total_inches = 0;
+	
 	print_question(10);
 
+	cout << "Enter the number of years: " << endl;
+	cin >> years;
+
+	while (years < 1)
+	{
+		cout << "The number of years cannot be less than 1!" << endl;
+			cout << "Enter the number of years: " << endl;
+		cin >> years;
+	}
+
+	// As I did with the previous questions, I started with the do-while loop
+	// for input validation until I realized that a simple while loop would 
+	// be so much easier. I decided to leave the do-while loop here
+
+	do {
+		for (int i = 1, j; i < years + 1; i++)
+		{
+			for (j = 1; j < 13; j++)
+			{
+				cout << "Enter the inches of rainfall that fell on month "
+					<< j << ": " << endl;
+				cin >> inches;
+
+				while (inches < 0)
+				{
+					cout << "The amount of rainfall (in inches) cannot be less"
+						"than 0! Please try again!" << endl <<
+					 "Enter the inches of rainfall that fell on month "
+						<< j << ": " << endl;
+					cin >> inches;
+
+				}
+
+				total_inches = total_inches + inches;
+				cout << "inches is " << inches << " and j is " << j << endl;
+				cout << total_inches << endl;
+				
+			}
+
+			cout << "Over " << i - 1 << " years and " << j - 1 << " months, " << endl;
+			cout << "the amount of rain in inches is " << total_inches << " and the "
+				"average rainfall per month is " << (total_inches / (j -1.0)) << endl;
+		}
+
+	} while (years < 1);
+	
 	return_to_menu();
 }
 
