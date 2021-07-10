@@ -548,7 +548,52 @@ void Question_10() {
 }
 
 void Question_11() {
+	int num, pop_increase_rate, days;
+	
 	print_question(11);
+
+	cout << "Enter the staring number of organisms: " << endl;
+	cin >> num;
+
+	while (num < 2)
+	{
+		cout << "Starting number of organisms cannot be less than 2! Try again"
+			<< endl;
+		cout << "Enter the staring number of organisms: " << endl;
+		cin >> num;
+	}
+
+	cout << "Enter the average daily population increase (as a percentage): "
+		<< endl;
+	cin >> pop_increase_rate;
+
+	// FOr whatever reason, this loop does not work?
+	while (pop_increase_rate < 0)
+	{
+		cout << "Average daily population increase cannot be negative! Try again"
+			<< endl;
+		cout << "Enter the average daily population increase (as a percentage): "
+			<< endl;
+		cin >> pop_increase_rate;
+	}
+
+	cout << "Enter the number of days the organisms will multiply: " << endl;
+	cin >> days;
+
+	while (days < 1)
+	{
+		cout << "Number of days cannot be negative! Try again" << endl;
+		cout << "Enter the number of days the organisms will multiply: " << endl;
+		cin >> days;
+	}
+
+	cout << "Day:			Number of organisms: " << endl;
+
+	for (int i = 1; i < days + 1; i++)
+	{
+		num = num + (num * (pop_increase_rate)/100);
+		cout << i << "			" << num << endl;
+	}
 
 	return_to_menu();
 }
