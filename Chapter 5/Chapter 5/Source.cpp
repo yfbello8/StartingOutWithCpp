@@ -601,26 +601,92 @@ void Question_11() {
 void Question_12() {
 	print_question(12);
 
+	cout << "Celsius Temperatures:			Fahrenheit Equivalent:" << endl;
+
+	for (int i = 0; i < 21; i++)
+		cout << i << "				" << ((9 / 5) * i) + 32 << endl;
 
 	return_to_menu();
 }
 
 void Question_13() {
+	int integer, biggest = 0, smallest = 0;
 	print_question(13);
 
+	do
+	{
+		cout << "Enter an integer. When you are finished, enter the integer"
+			" -99: " << endl;
+		cin >> integer;
 
+		if (integer > biggest)
+			biggest = integer;
+
+		if (integer < smallest)
+			smallest = integer;
+
+	} while (integer != -99);
+
+	cout << "The biggest integer in the series you entered is " << biggest <<
+		" while the smallest integer in the series is " << smallest << endl;
 	return_to_menu();
 }
 
 void Question_14() {
+	int num_students;
+	string name, first = "Z", last = "A";
+	
 	print_question(14);
 
+	do 
+	{
+		cout << "Enter the number of students in the class (1-25): " << endl;
+		cin >> num_students;
+
+	} while ((num_students < 1) || (num_students > 25));
+	
+
+	for (int i = 0; i < num_students; i++)
+	{
+		cout << "Enter the name of a student in the class: " << endl;
+		cin >> name;
+
+		if (name < first)
+			first = name;
+		if (name > last)
+			last = name;
+	}
+
+	cout << "The first student in line from amongst the names read would be " <<
+		first << " while the last would be " << last << endl;
 
 	return_to_menu();
 }
 
 void Question_15() {
+	int employee_num, gross_pay, state_tax, fed_tax, FICA_withholdings;
+	
 	print_question(15);
+
+	do {
+		cout << "Enter the employee number (enter 0 to quit): " << endl;
+		cin >> employee_num;
+
+		cout << "Enter that employees gross pay: " << endl;
+		cin >> gross_pay;
+
+		while (gross_pay < 0)
+		{
+			cout << "Gross pay cannot be less than 0. Please tray again" << endl;
+				cout << "Enter that employees gross pay: " << endl;
+			cin >> gross_pay;
+		}
+
+		cout << "Enter the employees "
+
+	} while (employee_num != 0);
+
+
 
 	return_to_menu();
 }
