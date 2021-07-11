@@ -284,13 +284,19 @@ void Question_1() {
 	return_to_menu();
 }
 
-//asd
 void Question_2() {
-
+	char code;
 
 	print_question(2);
 
-	cout << 'c' << endl;
+	for (int i = 0; i < 127; i++)
+	{
+		code = i;
+		cout << code << endl;
+
+		if (i == 16)
+			cout << endl;
+	}
 
 	return_to_menu();
 }
@@ -663,7 +669,6 @@ void Question_14() {
 	return_to_menu();
 }
 
-// asd I do not really understand what is being asked of me
 void Question_15() {
 	int employee_num;
 	double gross_pay, state_tax, fed_tax, FICA_withholdings, gross_pay_sum = 0,
@@ -680,7 +685,7 @@ void Question_15() {
 
 		while (gross_pay < 0)
 		{
-			cout << "Gross pay cannot be less than 0. Please tray again" << endl;
+			cout << "Gross pay cannot be less than 0. Please try again" << endl;
 			cout << "Enter that employees gross pay: " << endl;
 			cin >> gross_pay;
 		}
@@ -690,7 +695,7 @@ void Question_15() {
 
 		while (state_tax < 0)
 		{
-			cout << "State tax cannot be less than 0. Please tray again" << endl;
+			cout << "State tax cannot be less than 0. Please try again" << endl;
 			cout << "Enter the state tax for that employee: " << endl;
 			cin >> state_tax;
 		}
@@ -700,7 +705,7 @@ void Question_15() {
 
 		while (fed_tax < 0)
 		{
-			cout << "Federal tax cannot be less than 0. Please tray again" << endl;
+			cout << "Federal tax cannot be less than 0. Please try again" << endl;
 			cout << "Enter the federal tax for that employee: " << endl;
 			cin >> fed_tax;
 		}
@@ -724,14 +729,6 @@ void Question_15() {
 
 			employee_num = 0;
 		}
-
-		cout << "For this employee - " << endl <<
-			"Gross pay:		$" << gross_pay << endl <<
-			"State tax:		$" << state_tax << endl <<
-			"Federal tax:		$" << fed_tax << endl <<
-			"FICA withholdings:	$" << FICA_withholdings << endl <<
-			"Net pay:		$" << (gross_pay - (state_tax + fed_tax +
-				FICA_withholdings)) << endl;
 
 		gross_pay_sum += gross_pay;
 		state_tax_sum += state_tax;
@@ -810,34 +807,114 @@ void Question_16() {
 	return_to_menu();
 }
 
-// What is the best way to do this outside of hardcoding it?
 void Question_17() {
-	double store1, store2, store3, store4;
-	int asteriks;
+	double store1, store2, store3, store4, store5;
 
 	print_question(17);
 
 	cout << "Enter today's sales for store 1: " << endl;
 	cin >> store1;
 
-	asteriks = store1 / 100;
+	cout << "Enter today's sales for store 2: " << endl;
+	cin >> store2;
+
+	cout << "Enter today's sales for store 3: " << endl;
+	cin >> store3;
+
+	cout << "Enter today's sales for store 4: " << endl;
+	cin >> store4;
+
+	cout << "Enter today's sales for store 5: " << endl;
+	cin >> store5;
+
+	store1 = store1 / 100;
+	store2 = store2 / 100;
+	store3 = store3 / 100;
+	store4 = store4 / 100;
+	store5 = store5 / 100;
 
 	cout << "SALES BAR CHART" << endl << "(Each * = $100) " << endl;
 
-	for (int i = 0; i < asteriks; i++)
+	cout << "Store 1: ";
+	for (int i = 0; i < store1; i++)
 		cout << "*";
+	cout << endl;
 
+	cout << "Store 2: ";
+	for (int i = 0; i < store2; i++)
+		cout << "*";
+	cout << endl;
 
+	cout << "Store 3: ";
+	for (int i = 0; i < store3; i++)
+		cout << "*";
+	cout << endl;
+
+	cout << "Store 4: ";
+	for (int i = 0; i < store4; i++)
+		cout << "*";
+	cout << endl;
+
+	cout << "Store 5: ";
+	for (int i = 0; i < store5; i++)
+		cout << "*";
+	cout << endl;
+
+	// This here is another way of doing it that I found after looking online. 
+	// Since the point of this lesson is to work on loops, I feel that I would
+	// be remiss to do this problem without any loops
+	// cout << setfill('+') << setw(100) << endl;
 
 	return_to_menu();
 }
 
 //asd
 void Question_18() {
-
+	int pop1, pop2, pop3;
 
 	print_question(18);
 
+	ifstream input_file;
+	input_file.open("Fake People.txt");
+
+	if (input_file)
+	{
+		input_file >> pop1;
+		input_file >> pop2;
+		input_file >> pop3;
+
+		pop1 = pop1 / 1000;
+		pop2 = pop2 / 1000;
+		pop3 = pop3 / 1000;
+
+		cout << pop1 << endl << pop2 << endl << pop3 << endl;
+
+		cout << "PRAIRIEVILLE POPULATION GROWTH" << endl << "(each * represents"
+			" 1,000 people)" << endl;
+
+		cout << "1900 ";
+		for (int i = 0; i < pop1; i++)
+			cout << "*";
+		cout << endl;
+
+		cout << "1920 ";
+		for (int i = 0; i < pop2; i++)
+			cout << "*";
+		cout << endl;
+
+		cout << "1940 ";
+		for (int i = 0; i < pop3; i++)
+			cout << "*";
+		cout << endl;
+
+		/*
+		This doesnt work
+		cout << "1900 " << setfill('*') << setw(pop1) << endl;
+		cout << "1920 " << setfill('*') << setw(pop2) << endl;
+		cout << "1940 " << setfill('*') << setw(pop3) << endl;*/
+	}
+	else
+		cout << "Invalid file." << endl;
 
 	return_to_menu();
 }
@@ -901,11 +978,6 @@ void Question_20() {
 
 	return_to_menu();
 }
-
-// I should look into expanding this and turning it into a game you can play 
-// with friends. You chose easy (int < 100) medium (int < 10000) etc
-// and you can select how many players you want to play with. The winner is 
-// the one who gets it in the least number of guesses. asd
 
 void Question_21() {
 	int num, guess, num_guesses = 0;
@@ -1015,7 +1087,7 @@ void Question_24() {
 	return_to_menu();
 }
 
-// Why? asd
+// Why doesnt this work?
 void Question_25() {
 	string name, first = "z", last = "a";
 	
