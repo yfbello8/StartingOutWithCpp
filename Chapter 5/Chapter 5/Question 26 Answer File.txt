@@ -1,0 +1,4 @@
+Ending balance:				$1.00182e+06
+Total amount of deposits:		$1e+06
+Total amount of withdrawals:		$-10
+Total interest earned: 			$0.833333

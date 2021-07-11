@@ -495,7 +495,7 @@ void Question_9() {
 void Question_10() {
 	int years;
 	double inches, total_inches = 0;
-	
+
 	print_question(10);
 
 	cout << "Enter the number of years: " << endl;
@@ -504,7 +504,7 @@ void Question_10() {
 	while (years < 1)
 	{
 		cout << "The number of years cannot be less than 1!" << endl;
-			cout << "Enter the number of years: " << endl;
+		cout << "Enter the number of years: " << endl;
 		cin >> years;
 	}
 
@@ -525,7 +525,7 @@ void Question_10() {
 				{
 					cout << "The amount of rainfall (in inches) cannot be less"
 						"than 0! Please try again!" << endl <<
-					 "Enter the inches of rainfall that fell on month "
+						"Enter the inches of rainfall that fell on month "
 						<< j << ": " << endl;
 					cin >> inches;
 
@@ -534,22 +534,22 @@ void Question_10() {
 				total_inches = total_inches + inches;
 				cout << "inches is " << inches << " and j is " << j << endl;
 				cout << total_inches << endl;
-				
+
 			}
 
 			cout << "Over " << i - 1 << " years and " << j - 1 << " months, " << endl;
 			cout << "the amount of rain in inches is " << total_inches << " and the "
-				"average rainfall per month is " << (total_inches / (j -1.0)) << endl;
+				"average rainfall per month is " << (total_inches / (j - 1.0)) << endl;
 		}
 
 	} while (years < 1);
-	
+
 	return_to_menu();
 }
 
 void Question_11() {
 	int num, pop_increase_rate, days;
-	
+
 	print_question(11);
 
 	cout << "Enter the staring number of organisms: " << endl;
@@ -591,7 +591,7 @@ void Question_11() {
 
 	for (int i = 1; i < days + 1; i++)
 	{
-		num = num + (num * (pop_increase_rate)/100);
+		num = num + (num * (pop_increase_rate) / 100);
 		cout << i << "			" << num << endl;
 	}
 
@@ -635,16 +635,16 @@ void Question_13() {
 void Question_14() {
 	int num_students;
 	string name, first = "Z", last = "A";
-	
+
 	print_question(14);
 
-	do 
+	do
 	{
 		cout << "Enter the number of students in the class (1-25): " << endl;
 		cin >> num_students;
 
 	} while ((num_students < 1) || (num_students > 25));
-	
+
 
 	for (int i = 0; i < num_students; i++)
 	{
@@ -663,9 +663,12 @@ void Question_14() {
 	return_to_menu();
 }
 
+// asd I do not really understand what is being asked of me
 void Question_15() {
-	int employee_num, gross_pay, state_tax, fed_tax, FICA_withholdings;
-	
+	int employee_num;
+	double gross_pay, state_tax, fed_tax, FICA_withholdings, gross_pay_sum = 0,
+		state_tax_sum = 0, fed_tax_sum = 0, FICA_withholdings_sum = 0;
+
 	print_question(15);
 
 	do {
@@ -678,81 +681,431 @@ void Question_15() {
 		while (gross_pay < 0)
 		{
 			cout << "Gross pay cannot be less than 0. Please tray again" << endl;
-				cout << "Enter that employees gross pay: " << endl;
+			cout << "Enter that employees gross pay: " << endl;
 			cin >> gross_pay;
 		}
 
-		cout << "Enter the employees "
+		cout << "Enter the state tax for that employee: " << endl;
+		cin >> state_tax;
+
+		while (state_tax < 0)
+		{
+			cout << "State tax cannot be less than 0. Please tray again" << endl;
+			cout << "Enter the state tax for that employee: " << endl;
+			cin >> state_tax;
+		}
+
+		cout << "Enter the federal tax for that employee: " << endl;
+		cin >> fed_tax;
+
+		while (fed_tax < 0)
+		{
+			cout << "Federal tax cannot be less than 0. Please tray again" << endl;
+			cout << "Enter the federal tax for that employee: " << endl;
+			cin >> fed_tax;
+		}
+
+		cout << "Enter the FICA withholdings for that employee: " << endl;
+		cin >> FICA_withholdings;
+
+		while (FICA_withholdings < 0)
+		{
+			cout << "FICA withholdings cannot be less than 0. Please tray again" << endl;
+			cout << "Enter the FICA withholdings for that employee: " << endl;
+			cin >> FICA_withholdings;
+		}
+
+		if ((state_tax + fed_tax + FICA_withholdings) > gross_pay)
+		{
+			cout << "The sum of the state and federal tax, along with FICA "
+				"withholdings is $" << (state_tax + fed_tax + FICA_withholdings)
+				<< " which is more than $" << gross_pay << ", the gross pay."
+				" Please enter the information again" << endl;
+
+			employee_num = 0;
+		}
+
+		cout << "For this employee - " << endl <<
+			"Gross pay:		$" << gross_pay << endl <<
+			"State tax:		$" << state_tax << endl <<
+			"Federal tax:		$" << fed_tax << endl <<
+			"FICA withholdings:	$" << FICA_withholdings << endl <<
+			"Net pay:		$" << (gross_pay - (state_tax + fed_tax +
+				FICA_withholdings)) << endl;
+
+		gross_pay_sum += gross_pay;
+		state_tax_sum += state_tax;
+		FICA_withholdings_sum += FICA_withholdings;
 
 	} while (employee_num != 0);
 
-
+	cout << "Total gross pay:		$" << gross_pay_sum << endl <<
+		"Total state tax:		$" << state_tax_sum << endl <<
+		"Total federal tax:		$" << fed_tax_sum << endl <<
+		"Total FICA withholdings:	$" << FICA_withholdings_sum << endl <<
+		"Total net pay:			$" << (gross_pay_sum - (state_tax_sum + fed_tax_sum +
+			FICA_withholdings_sum)) << endl;
 
 	return_to_menu();
 }
 
 void Question_16() {
+	double bal, annual_rate, monthly_rate, num_months, deposit,
+		total_deposits = 0, total_withdrawals = 0, withdrawl, total_interest = 0;
+
 	print_question(16);
 
+	cout << "Enter the starting balance: " << endl;
+	cin >> bal;
+
+	cout << "Enter the annual interest rate: " << endl;
+	cin >> annual_rate;
+
+	monthly_rate = (annual_rate / 12) / 100.0;
+
+	cout << "Enter the number of months since the account was established: "
+		<< endl;
+	cin >> num_months;
+
+	total_interest = (monthly_rate * bal) * num_months;
+
+	for (int i = 1; i < num_months + 1; i++)
+	{
+		cout << "Enter the amount deposited for month " << i << ": " << endl;
+		cin >> deposit;
+
+		while (deposit < 0)
+		{
+			cout << "The amount deposited cannot be negative. Please try again"
+				<< endl;
+			cout << "Enter the amount deposited for this month: " << endl;
+			cin >> deposit;
+		}
+
+		bal += deposit;
+		total_deposits += deposit;
+
+		cout << "Enter the amount withdrawn for this month: " << endl;
+		cin >> withdrawl;
+
+		while (withdrawl < 0)
+		{
+			cout << "The amount withdrawn cannot be negative. Please try again"
+				<< endl;
+			cout << "Enter the amount withdrawn for this month: " << endl;
+			cin >> withdrawl;
+		}
+
+		bal -= withdrawl;
+		total_withdrawals -= withdrawl;
+
+		bal = (monthly_rate * bal) + bal;
+	}
+
+	cout << "Ending balance:				$" << bal << endl <<
+		"Total amount of deposits:			$" << total_deposits << endl <<
+		"Total amount of withdrawals:		$" << total_withdrawals << endl <<
+		"Total interest earned: 			$" << total_interest << endl;
+
 	return_to_menu();
 }
 
+// What is the best way to do this outside of hardcoding it?
 void Question_17() {
+	double store1, store2, store3, store4;
+	int asteriks;
+
 	print_question(17);
 
+	cout << "Enter today's sales for store 1: " << endl;
+	cin >> store1;
+
+	asteriks = store1 / 100;
+
+	cout << "SALES BAR CHART" << endl << "(Each * = $100) " << endl;
+
+	for (int i = 0; i < asteriks; i++)
+		cout << "*";
+
+
+
 	return_to_menu();
 }
 
+//asd
 void Question_18() {
+
+
 	print_question(18);
+
 
 	return_to_menu();
 }
 
 void Question_19() {
+	double expense, total_expense =0, budget;
+
 	print_question(19);
+
+	cout << "Enter the amount you have budgeted for a month: " << endl;
+	cin >> budget;
+
+	do {
+		cout << "Enter an expense (enter -0 when done):" << endl;
+		cin >> expense;
+
+		while (expense < 0)
+		{
+			cout << "Expense cannot be less than 0!" << endl;
+			cout << "Enter an expense (enter -0 when done):" << endl;
+			cin >> expense;
+		}
+
+		total_expense += expense;
+		cout << expense << endl << endl;
+
+	} while (expense != -0);
+
+	if (expense > budget)
+		cout << "You are $" << (expense - budget) << " over budget" << endl;
+	else if (expense < budget)
+		cout << "You are $" << (budget - expense) << " under budget" << endl;
 
 	return_to_menu();
 }
 
 void Question_20() {
+	int num, guess;
+
 	print_question(20);
+
+	unsigned seed = time(0);
+	srand(seed);
+
+	num = rand();
+
+	do {
+		cout << "Guess the number (integers only): " << endl;
+		cin >> guess;
+
+		if (guess < num)
+			cout << "Too low! try again!" << endl;
+
+		else if (guess > num)
+			cout << "Too high! try again!" << endl;
+
+	} while (guess != num);
+
+	cout << "You guessed correctly!" << endl;
+
 
 	return_to_menu();
 }
 
+// I should look into expanding this and turning it into a game you can play 
+// with friends. You chose easy (int < 100) medium (int < 10000) etc
+// and you can select how many players you want to play with. The winner is 
+// the one who gets it in the least number of guesses. asd
+
 void Question_21() {
+	int num, guess, num_guesses = 0;
+
 	print_question(21);
+
+	unsigned seed = time(0);
+	srand(seed);
+
+	num = rand();
+
+	do {
+		cout << "Guess the number (integers only): " << endl;
+		cin >> guess;
+
+		if (guess < num)
+			cout << "Too low! try again!" << endl;
+
+		else if (guess > num)
+			cout << "Too high! try again!" << endl;
+
+		num_guesses += 1;
+
+	} while (guess != num);
+
+	cout << "You guessed correctly!" << endl;
+	cout << "Number of guesses: " << num_guesses << endl;
 
 	return_to_menu();
 }
 
 void Question_22() {
+	int integer;
+
 	print_question(22);
 
+	cout << "Enter a positive integer no greater than 15:" << endl;
+	cin >> integer;
+
+	while (integer > 15)
+	{
+		cout << "Integer cannot be greater than 15!" << endl;
+		cout << "Enter a positive integer no greater than 15:" << endl;
+		cin >> integer;
+	}
+
+	for (int i = 0; i < integer; i++)
+	{
+		for (int j = 0; j < integer; j++)
+			cout << "X";
+		cout << endl;
+	}
+		
 	return_to_menu();
 }
 
+// Issues I cannot resolve asd
 void Question_23() {
 	print_question(23);
 
+	cout << "Pattern A		Pattern B" << endl;
+
+	for (int i = 1; i < 11; i++)
+	{
+		for (int j=0; j<i; j++)
+			cout << "+";
+
+		//cout << "                      ";
+		cout << "			";
+
+		for (int k = 11; k > i; k--)
+			cout << "+";
+		cout << endl;
+	}
+
 	return_to_menu();
 }
+
 
 void Question_24() {
+	int number, num_number =0, sum = 0;
+	
 	print_question(24);
+
+	ifstream file_input;
+	file_input.open("ListOfNumbers.txt");
+
+	if (file_input)
+	{
+		while (!file_input.eof())
+		{
+			file_input >> number;
+			//getline(file_input, number); Why doesnt this work?
+			num_number += 1;
+			sum += number;
+		}
+	}
+	else
+		cout << "Invalid file " << endl;
+
+	file_input.close();
+
+	cout << "Number of numbers found in the file: " << num_number << endl <<
+		"Sum of all the numbers found in the file: " << sum << endl <<
+		"Average of the numbers found in the file: " << (sum / num_number) << endl;
 
 	return_to_menu();
 }
 
+// Why? asd
 void Question_25() {
+	string name, first = "z", last = "a";
+	
 	print_question(25);
+
+	ifstream file_input;
+	file_input.open("BoyNames.txt");
+
+	if (file_input)
+	{
+		while (!file_input.eof()) {
+
+			getline(file_input, name);
+			
+			if (name < first)
+				first = name;
+			if (name > last)
+				last = name;
+		}
+		cout << "The first student in line from amongst the names read would be " <<
+			first << " while the last would be " << last << endl;
+	}
+	else
+		cout << "Invalid file " << endl;
+
+	file_input.close();
 
 	return_to_menu();
 }
 
 void Question_26() {
+	double bal, annual_rate, monthly_rate, num_months, deposit,
+		total_deposits = 0, total_withdrawals = 0, withdrawl, total_interest = 0;
+
 	print_question(26);
+
+	cout << "Enter the starting balance: " << endl;
+	cin >> bal;
+
+	cout << "Enter the annual interest rate: " << endl;
+	cin >> annual_rate;
+
+	monthly_rate = (annual_rate / 12) / 100.0;
+
+	cout << "Enter the number of months since the account was established: "
+		<< endl;
+	cin >> num_months;
+
+	total_interest = (monthly_rate * bal) * num_months;
+
+	for (int i = 1; i < num_months + 1; i++)
+	{
+		cout << "Enter the amount deposited for month " << i << ": " << endl;
+		cin >> deposit;
+
+		while (deposit < 0)
+		{
+			cout << "The amount deposited cannot be negative. Please try again"
+				<< endl;
+			cout << "Enter the amount deposited for this month: " << endl;
+			cin >> deposit;
+		}
+
+		bal += deposit;
+		total_deposits += deposit;
+
+		cout << "Enter the amount withdrawn for this month: " << endl;
+		cin >> withdrawl;
+
+		while (withdrawl < 0)
+		{
+			cout << "The amount withdrawn cannot be negative. Please try again"
+				<< endl;
+			cout << "Enter the amount withdrawn for this month: " << endl;
+			cin >> withdrawl;
+		}
+
+		bal -= withdrawl;
+		total_withdrawals -= withdrawl;
+
+		bal = (monthly_rate * bal) + bal;
+	}
+
+	ofstream output_file;
+	output_file.open("Question 26 Answer File.txt");
+
+	output_file << "Ending balance:				$" << bal << endl <<
+		"Total amount of deposits:		$" << total_deposits << endl <<
+		"Total amount of withdrawals:		$" << total_withdrawals << endl <<
+		"Total interest earned: 			$" << total_interest << endl;
 
 	return_to_menu();
 }
