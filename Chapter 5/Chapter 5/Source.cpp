@@ -289,12 +289,16 @@ void Question_2() {
 
 	print_question(2);
 
-	for (int i = 0; i < 127; i++)
+	for (int i = 0; i <= 127; i++) 
 	{
 		code = i;
-		cout << code << endl;
+		cout << code << " ";
 
-		if (i == 16)
+		// This is a pretty cool way to make sure that there is only 16 characters 
+		// in a line. Basically, I am saying that wherever the remainder is 0,
+		// (hence it is completely divisible by 16) create a new line. The outer 
+		// loop need not change since it is always just incrementing by one
+		if ((i+1) % 16 == 0) 
 			cout << endl;
 	}
 
@@ -459,10 +463,9 @@ void Question_8() {
 
 
 void Question_9() {
-	int floors, rooms, occupied;
+	int floors, rooms = 0, occupied = 0;
 
 	print_question(9);
-
 
 	cout << "Enter the number of floors the hotel has: " << endl;
 	cin >> floors;
@@ -807,6 +810,9 @@ void Question_16() {
 	return_to_menu();
 }
 
+// I really wanted to try and find a way to represent this without almost 
+// hard-coding the entire solution but I cannot do so without an array, 
+// which we haven't learned at this level yet
 void Question_17() {
 	double store1, store2, store3, store4, store5;
 
@@ -862,13 +868,14 @@ void Question_17() {
 
 	// This here is another way of doing it that I found after looking online. 
 	// Since the point of this lesson is to work on loops, I feel that I would
-	// be remiss to do this problem without any loops
-	// cout << setfill('+') << setw(100) << endl;
+	// be remiss to do this problem without any loops. I must admit after using 
+	// this later in this program that it is a bit counter-intuitive to use
+	// I think that I need a bit more practice with it 
+	// cout << setfill('+') << setw(100) << "" << endl;
 
 	return_to_menu();
 }
 
-//asd
 void Question_18() {
 	int pop1, pop2, pop3;
 
@@ -891,7 +898,7 @@ void Question_18() {
 
 		cout << "PRAIRIEVILLE POPULATION GROWTH" << endl << "(each * represents"
 			" 1,000 people)" << endl;
-
+		
 		cout << "1900 ";
 		for (int i = 0; i < pop1; i++)
 			cout << "*";
@@ -907,11 +914,6 @@ void Question_18() {
 			cout << "*";
 		cout << endl;
 
-		/*
-		This doesnt work
-		cout << "1900 " << setfill('*') << setw(pop1) << endl;
-		cout << "1920 " << setfill('*') << setw(pop2) << endl;
-		cout << "1940 " << setfill('*') << setw(pop3) << endl;*/
 	}
 	else
 		cout << "Invalid file." << endl;
@@ -920,7 +922,7 @@ void Question_18() {
 }
 
 void Question_19() {
-	double expense, total_expense =0, budget;
+	double expense, total_expense = 0, budget;
 
 	print_question(19);
 
@@ -1030,19 +1032,26 @@ void Question_22() {
 			cout << "X";
 		cout << endl;
 	}
-		
+
 	return_to_menu();
 }
 
-// Issues I cannot resolve asd
 void Question_23() {
 	print_question(23);
 
 	cout << "Pattern A		Pattern B" << endl;
 
+	/*
+	* 
+	* This is my initial solution. I used two loops but was running into an
+	* issue with the spaces. If I used the space key to separate the two 
+	* patterns, the format would cease to be correct. If I used the tab key
+	* instead, the last two lines would be mismatched. I asked around and a 
+	* new solution was suggested to me
+
 	for (int i = 1; i < 11; i++)
 	{
-		for (int j=0; j<i; j++)
+		for (int j = 0; j < i; j++)
 			cout << "+";
 
 		//cout << "                      ";
@@ -1052,14 +1061,35 @@ void Question_23() {
 			cout << "+";
 		cout << endl;
 	}
+		
+		In the solution below, I use the setfill() manipulator I found earlier 
+		to avoid having to use loops. The first setfill creates the first 
+		set of crosses while the second creates the spaces. It makes sure that 
+		the number of spaces matches with the pattern itself. As the pattern 
+		increments, the number of spaces decrements. This allows for the 
+		consistency needed to maintain the pattern. The last setfill creates
+		the second pattern, all on that line. Then we create a new line after 
+		it all. Remarkably efficient
+		*/
+
+	for (int i = 1; i < 11; i++)
+	{
+		cout << setfill('+') << setw(i);
+		cout << "" ;
+		cout << setfill(' ') << setw(24-i);
+		cout << "";
+		cout << setfill('+') << setw(11-i);
+		cout << "" << endl;
+
+	}
 
 	return_to_menu();
 }
 
 
 void Question_24() {
-	int number, num_number =0, sum = 0;
-	
+	int number, num_number = 0, sum = 0;
+
 	print_question(24);
 
 	ifstream file_input;
@@ -1090,7 +1120,7 @@ void Question_24() {
 // Why doesnt this work?
 void Question_25() {
 	string name, first = "z", last = "a";
-	
+
 	print_question(25);
 
 	ifstream file_input;
@@ -1101,7 +1131,7 @@ void Question_25() {
 		while (!file_input.eof()) {
 
 			getline(file_input, name);
-			
+
 			if (name < first)
 				first = name;
 			if (name > last)
