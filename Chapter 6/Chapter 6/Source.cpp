@@ -243,8 +243,6 @@ void print_question(int i) {
 
 	file_input.close();
 	cout << "---------" << endl;
-
-	get_answer();
 }
 
 int main() {
@@ -254,9 +252,38 @@ int main() {
 	Menu();
 }
 
+double calculate_retail(double wholesale_cost, double markup_percentage) {
+	double retail_price;
+
+	return retail_price = (wholesale_cost * (markup_percentage/100)) + wholesale_cost;
+}
 
 void Question_1() {
+	double wholesale_cost, markup_percentage;
+
 	print_question(1);
+
+	cout << "Enter the item's wholesale cost: " << endl;
+	cin >> wholesale_cost;
+
+	while (wholesale_cost < 0)
+	{
+		cout << "The item's wholesale cost cannot be a negative number! " << endl;
+		cout << "Enter the item's wholesale cost: " << endl;
+		cin >> wholesale_cost;
+	}
+
+	cout << "Enter the item's markup percentage: " << endl;
+	cin >> markup_percentage;
+
+	while (markup_percentage < 0) 
+	{
+		cout << "The item's markup percentage cannot be a negative number! " << endl;
+		cout << "Enter the item's markup percentage: " << endl;
+		cin >> markup_percentage;
+	}
+
+	cout << "The item's retail price is $" << calculate_retail(wholesale_cost, markup_percentage) << endl;
 
 	return_to_menu();
 

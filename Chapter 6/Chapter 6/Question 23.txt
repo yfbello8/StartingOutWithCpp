@@ -1,0 +1,31 @@
+Question 23 - Prime Number List 
+
+Use the isPrime function that you wrote in Programming Challenge 22 in a program that stores a list of all the prime numbers from 1 through 100 in a file. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

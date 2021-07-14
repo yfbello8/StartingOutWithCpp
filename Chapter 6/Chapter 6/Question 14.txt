@@ -1,0 +1,30 @@
+Question 14 - Order Status 
+
+The Middletown Wholesale Copper Wire Company sells spools of copper wiring for $100 each. Write a program that displays the status of an order. The program should have a function that asks for the following data: 
+
+- The number of spools ordered. 
+- The number of spools in stock. 
+- Whether there are special shipping and handling charges. 
+
+(Shipping and handling is normally $10 per spool.) If there are special charges, the program should ask for the special charges per spool. 
+The gathered data should be passed as arguments to another function that displays 
+
+- The number of spools ready to ship from current stock. 
+- The number of spools on backorder (if the number ordered is greater than what is in stock). 
+- Subtotal of the portion ready to ship (the number of spools ready to ship times $100). 
+- Total shipping and handling charges on the portion ready to ship. 
+- Total of the order ready to ship. The shipping and handling parameter in the second function should have the default argument 10.00. 
+Input Validation: Do not accept numbers less than 1 for spools ordered. Do not accept a number less than 0 for spools in stock or shipping and handling charges.
+
+
+
+
+
+
+
+
+
+
+
+
+
