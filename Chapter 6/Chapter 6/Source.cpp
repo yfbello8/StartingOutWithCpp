@@ -286,18 +286,51 @@ void Question_1() {
 	cout << "The item's retail price is $" << calculate_retail(wholesale_cost, markup_percentage) << endl;
 
 	return_to_menu();
-
 }
 
 void Question_2() {
+	
+	
 	print_question(2);
+
+
 
 	return_to_menu();
 }
 
+void find_highest() {
+
+
+
+}
+
+double get_sales(string division) {
+	double quarterly_sales;
+
+	cout << "Enter the division's quarterly sales value: " << endl;
+	cin >> quarterly_sales;
+
+	while (quarterly_sales < 0)
+	{
+		cout << "Quarterly sales cannot be a negative value!" << endl;
+		cout << "Enter the division's quarterly sales value: " << endl;
+		cin >> quarterly_sales;
+	}
+
+	return quarterly_sales;
+}
+
+// idk how to do this
 void Question_3() {
+	string division, quarterly_sales;
+
 	print_question(3);
 
+	cout << "Enter the name of a division (Northeast, Southeast, "
+		"Northwest, SOuthwest): " << endl;
+	cin >> division;
+
+	quarterly_sales = get_sales(division);
 
 	return_to_menu();
 }
@@ -309,9 +342,19 @@ void Question_4() {
 	return_to_menu();
 }
 
+double falling_distance(double falling_time) {
+	double distance, g_force = 9.8;
+
+	return distance = 0.5*(g_force * (pow(falling_time, 2)));
+}
+
 void Question_5() {
+	double falling_time;
+	
 	print_question(5);
 
+	for (int i = 0; i < 10; i++)
+		cout << "The distance fallen is " << falling_distance(i) << endl;
 
 	return_to_menu();
 }
