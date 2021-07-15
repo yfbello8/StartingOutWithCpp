@@ -349,8 +349,6 @@ double falling_distance(double falling_time) {
 }
 
 void Question_5() {
-	double falling_time;
-	
 	print_question(5);
 
 	for (int i = 0; i < 10; i++)
@@ -366,9 +364,18 @@ void Question_6() {
 	return_to_menu();
 }
 
+double celsius(double f) {
+	double celsius = (f - 32) * (5.0 / 9);
+
+	return celsius;
+}
+
 void Question_7() {
 	print_question(7);
 
+	for (int i = 0; i < 21; i++)
+		cout << i << " degrees Fahrenheit is " << setprecision(4) << celsius(i) 
+			<< " degrees Celsius. " << endl;
 
 	return_to_menu();
 }
@@ -380,9 +387,34 @@ void Question_8() {
 	return_to_menu();
 }
 
+double present_value(double future_val, double annual_rate, int num_years){
+	double present_val, x; 
+
+	x = 1 + (annual_rate/100);
+	present_val = future_val / pow(x, num_years);
+
+	return present_val;
+}
 
 void Question_9() {
+	double future_val, annual_rate, num_years;
+	
 	print_question(9);
+
+	cout << "Enter the future value in the account: " << endl;
+	cin >> future_val;
+
+	cout << "Enter the annual interest rate: " << endl;
+	cin >> annual_rate;
+
+	cout << "Enter the number of years the money will remain in the account: "
+		<< endl;
+	cin >> num_years;
+
+	cout << "To make the future value of $" << future_val << " with a "
+		<< annual_rate << "% annual interest rate over " << num_years <<
+		" years, you need to put in $" << present_value(future_val, annual_rate, num_years)
+		<< " today." << endl;
 
 	return_to_menu();
 }
@@ -393,8 +425,26 @@ void Question_10() {
 	return_to_menu();
 }
 
+void get_score() {
+	double test_score;
+
+	cout << "Enter a test score: " << endl;
+	cin >> test_score;
+
+	while ((test_score < 0) || (test_score > 100))
+	{
+		cout << "Test score cannot be negative or greater than 100!" << endl;
+		cout << "Enter a test score: " << endl;
+		cin >> test_score;
+	}
+}
+
 void Question_11() {
+	double test_score1, test_score2, test_score3, test_score4;
+	
 	print_question(11);
+
+	test_score1 = get_score();
 
 	return_to_menu();
 }
