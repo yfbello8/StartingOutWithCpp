@@ -425,8 +425,27 @@ void Question_10() {
 	return_to_menu();
 }
 
-void get_score() {
-	double test_score;
+
+int find_lowest(double score1, double score2, double score3, double score4, double score5) {
+	double lowest;
+
+
+
+	return lowest;
+}
+
+void calc_average(double score1, double score2, double score3, double score4, double score5) {
+	double avg, lowest;
+
+	lowest =  find_lowest(score1, score2, score3, score4, score5);
+
+	avg = (score1 + score2 + score3 + score4 + score5 - lowest) / 4;
+
+	cout << "The average of the 4 test scores (excluding the lowest) is " 
+		<< avg << endl;
+}
+
+void get_score(double &test_score)  {
 
 	cout << "Enter a test score: " << endl;
 	cin >> test_score;
@@ -440,11 +459,20 @@ void get_score() {
 }
 
 void Question_11() {
-	double test_score1, test_score2, test_score3, test_score4;
+	double score1, score2, score3, score4, score5;
 	
 	print_question(11);
+	
+	get_score(score1);
+	get_score(score2);
+	get_score(score3);
+	get_score(score4);
+	get_score(score5);
 
-	test_score1 = get_score();
+	cout << "Scores: " << score1 << endl << score2 << endl << score3 << endl 
+		<< score4 << endl << score5 << endl;
+
+	calc_average(score1, score2, score3, score4, score5);
 
 	return_to_menu();
 }
