@@ -255,7 +255,7 @@ int main() {
 double calculate_retail(double wholesale_cost, double markup_percentage) {
 	double retail_price;
 
-	return retail_price = (wholesale_cost * (markup_percentage/100)) + wholesale_cost;
+	return retail_price = (wholesale_cost * (markup_percentage / 100)) + wholesale_cost;
 }
 
 void Question_1() {
@@ -276,7 +276,7 @@ void Question_1() {
 	cout << "Enter the item's markup percentage: " << endl;
 	cin >> markup_percentage;
 
-	while (markup_percentage < 0) 
+	while (markup_percentage < 0)
 	{
 		cout << "The item's markup percentage cannot be a negative number! " << endl;
 		cout << "Enter the item's markup percentage: " << endl;
@@ -289,8 +289,8 @@ void Question_1() {
 }
 
 void Question_2() {
-	
-	
+
+
 	print_question(2);
 
 
@@ -345,7 +345,7 @@ void Question_4() {
 double falling_distance(double falling_time) {
 	double distance, g_force = 9.8;
 
-	return distance = 0.5*(g_force * (pow(falling_time, 2)));
+	return distance = 0.5 * (g_force * (pow(falling_time, 2)));
 }
 
 void Question_5() {
@@ -374,8 +374,8 @@ void Question_7() {
 	print_question(7);
 
 	for (int i = 0; i < 21; i++)
-		cout << i << " degrees Fahrenheit is " << setprecision(4) << celsius(i) 
-			<< " degrees Celsius. " << endl;
+		cout << i << " degrees Fahrenheit is " << setprecision(4) << celsius(i)
+		<< " degrees Celsius. " << endl;
 
 	return_to_menu();
 }
@@ -387,10 +387,10 @@ void Question_8() {
 	return_to_menu();
 }
 
-double present_value(double future_val, double annual_rate, int num_years){
-	double present_val, x; 
+double present_value(double future_val, double annual_rate, int num_years) {
+	double present_val, x;
 
-	x = 1 + (annual_rate/100);
+	x = 1 + (annual_rate / 100);
 	present_val = future_val / pow(x, num_years);
 
 	return present_val;
@@ -398,7 +398,7 @@ double present_value(double future_val, double annual_rate, int num_years){
 
 void Question_9() {
 	double future_val, annual_rate, num_years;
-	
+
 	print_question(9);
 
 	cout << "Enter the future value in the account: " << endl;
@@ -427,9 +427,26 @@ void Question_10() {
 
 
 int find_lowest(double score1, double score2, double score3, double score4, double score5) {
-	double lowest;
+	double lowest = 0;
 
+	lowest = score1;
 
+	if (score2 < score1)
+	{
+		lowest = score2;
+
+		if (score3 < score2)
+		{
+			lowest = score3;
+
+		}
+
+	}
+	else if (score3 < score1)
+	{
+		lowest = score3;
+
+	}
 
 	return lowest;
 }
@@ -437,15 +454,15 @@ int find_lowest(double score1, double score2, double score3, double score4, doub
 void calc_average(double score1, double score2, double score3, double score4, double score5) {
 	double avg, lowest;
 
-	lowest =  find_lowest(score1, score2, score3, score4, score5);
+	lowest = find_lowest(score1, score2, score3, score4, score5);
 
 	avg = (score1 + score2 + score3 + score4 + score5 - lowest) / 4;
 
-	cout << "The average of the 4 test scores (excluding the lowest) is " 
+	cout << "The average of the 4 test scores (excluding the lowest) is "
 		<< avg << endl;
 }
 
-void get_score(double &test_score)  {
+void get_score(double& test_score) {
 
 	cout << "Enter a test score: " << endl;
 	cin >> test_score;
@@ -460,16 +477,16 @@ void get_score(double &test_score)  {
 
 void Question_11() {
 	double score1, score2, score3, score4, score5;
-	
+
 	print_question(11);
-	
+
 	get_score(score1);
 	get_score(score2);
 	get_score(score3);
 	get_score(score4);
 	get_score(score5);
 
-	cout << "Scores: " << score1 << endl << score2 << endl << score3 << endl 
+	cout << "Scores: " << score1 << endl << score2 << endl << score3 << endl
 		<< score4 << endl << score5 << endl;
 
 	calc_average(score1, score2, score3, score4, score5);
@@ -480,13 +497,60 @@ void Question_11() {
 void Question_12() {
 	print_question(12);
 
+	
+
+	
 
 	return_to_menu();
 }
 
+double avg_days_missed(int num_employees, int days_missed) {
+	double avg_days_missed_per_employee = days_missed / num_employees;
+
+	return avg_days_missed_per_employee;
+}
+
+int days_missed(int num_employees) {
+	int missed, sum_missed = 0;
+
+	for (int i = 0; i < num_employees; i++)
+	{
+		cout << "Enter the number of days each employee missed during the past"
+			" year (enter one number at a time): " << endl;
+		cin >> missed;
+
+		sum_missed = missed + sum_missed;
+	}
+	return sum_missed;
+}
+
+int num_employees() {
+	int num_employees;
+
+	cout << "Enter the number of employees in the company: " << endl;
+	cin >> num_employees;
+
+	while (num_employees < 1)
+	{
+		cout << "The number of employees cannot be less than 1! Please try "
+			"again" << endl;
+		cout << "Enter the number of employees in the company: " << endl;
+		cin >> num_employees;
+	}
+
+	return num_employees;
+}
+
 void Question_13() {
+	int employee_num;
+
 	print_question(13);
 
+	employee_num = num_employees();
+
+	cout << "The average days missed by the employees in the company is "
+		<< avg_days_missed(employee_num, days_missed(employee_num)) 
+		<< endl;
 
 	return_to_menu();
 }
