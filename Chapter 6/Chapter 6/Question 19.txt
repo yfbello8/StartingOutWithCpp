@@ -1,24 +1,3 @@
 Question 19 - Using Files - Hospital Report 
 
 Modify Programming Challenge 15, Overloaded Hospital, to write the report it creates to a file. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

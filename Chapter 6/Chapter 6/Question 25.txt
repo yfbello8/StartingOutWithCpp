@@ -22,32 +22,3 @@ Here is the assignment: Write a program that calculates and displays the total t
 
 The program should calculate and display the total expenses incurred by the busi-nessperson, the total allowable expenses for the trip, the excess that must be reim-bursed by the businessperson, if any, and the amount saved by the businessperson if the expenses were under the total allowed. 
 Input Validation: Do not accept negative numbers for any dollar amount or for miles driven in a private vehicle. Do not accept numbers less than 1 for the number of days. Only accept valid times for the time of departure and the time of arrival.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

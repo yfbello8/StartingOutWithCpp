@@ -1,0 +1,9 @@
+Question 18 - Tic-Tac-Toe Game 
+ 
+Write a program that allows two players to play a game of tic-tac-toe. Use a two-dimensional char array with three rows and three columns as the game board. Each element of the array should be initialized with an asterisk (*). The program should run a loop that 
+ 
+- Displays the contents of the board array 
+- Allows player 1 to select a location on the board for an X. The program should ask the user to enter the row and column numbeAllowsplayer 2 to select a location on the board for an O. The program should ask the user to enter the row and column number. 
+- Determines whether a player has won, or a tie has occurred. If a player has won, the program should declare that player the winner and end. If a tie has occurred, the program should say so and end.
+
+Player 1 wins when there are three Xs in a row on the game board. The Xs can appear in a row, in a column, or diagonally across the board. A tie occurs when all of the locations on the board are full, but there is no winner. 

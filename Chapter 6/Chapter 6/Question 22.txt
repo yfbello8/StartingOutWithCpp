@@ -11,24 +11,3 @@ TIP: Recall that the % operator divides one number by another, and returns the r
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,3 @@
+Question 4 - Larger Than  n 
+ 
+In a program, write a function that accepts three arguments: an array, the size of the array, and a number n. Assume that the array contains integers. The function should display all of the numbers in the array that are greater than the number n.

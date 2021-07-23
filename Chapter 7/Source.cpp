@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-const int num = 26;
+const int num = 20;
 
 // I technically do not need these as they are defined before use in main
 // I chose to declare them anyhow to make it easier to see what is going on

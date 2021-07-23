@@ -9,23 +9,3 @@ A painting company has determined that for every 110 square feet of wall space, 
 - The total cost of the paint job 
 
 Input validation: Do not accept a value less than 1 for the number of rooms. Do not accept a value less than $10.00 for the price of paint. Do not accept a negative value for square footage of wall space.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

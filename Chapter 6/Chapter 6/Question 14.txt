@@ -15,16 +15,3 @@ The gathered data should be passed as arguments to another function that display
 - Total shipping and handling charges on the portion ready to ship. 
 - Total of the order ready to ship. The shipping and handling parameter in the second function should have the default argument 10.00. 
 Input Validation: Do not accept numbers less than 1 for spools ordered. Do not accept a number less than 0 for spools in stock or shipping and handling charges.
-
-
-
-
-
-
-
-
-
-
-
-
-

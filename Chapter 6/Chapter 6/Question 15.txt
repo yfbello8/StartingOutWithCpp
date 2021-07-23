@@ -14,18 +14,3 @@ The program should ask for the following data if the patient was an out-patient:
 
 The program should use two overloaded functions to calculate the total charges. One of the functions should accept arguments for the in-patient data, while the other func-tion accepts arguments for out-patient information. Both functions should return the total charges. 
 Input Validation: Do not accept negative numbers for any data.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-const int num = 26;
+const int num = 25;
 
 // I technically do not need these as they are defined before use in main
 // I chose to declare them anyhow to make it easier to see what is going on
@@ -114,7 +114,6 @@ void Menu() {
 				cout << "Invalid file " << file_name << endl;
 
 			file_input.close();
-
 		}
 
 		while (choice != QUIT_PROGRAM) {
@@ -217,7 +216,6 @@ void Menu() {
 			case QUIT_PROGRAM:
 				quit_program();
 			}
-
 		}
 	}
 }
@@ -497,9 +495,9 @@ void Question_11() {
 void Question_12() {
 	print_question(12);
 
-	
 
-	
+
+
 
 	return_to_menu();
 }
@@ -549,7 +547,7 @@ void Question_13() {
 	employee_num = num_employees();
 
 	cout << "The average days missed by the employees in the company is "
-		<< avg_days_missed(employee_num, days_missed(employee_num)) 
+		<< avg_days_missed(employee_num, days_missed(employee_num))
 		<< endl;
 
 	return_to_menu();
@@ -562,20 +560,215 @@ void Question_14() {
 	return_to_menu();
 }
 
+double patient(int num_days, double daily_rate, double med_charge,
+	double service_charge, double total_charge) {
+
+	total_charge = (num_days * daily_rate) + med_charge + service_charge;
+
+	return total_charge;
+}
+
+double patient(double med_charge, double service_charge, double total_charge) {
+
+	total_charge = med_charge + service_charge;
+
+	return total_charge;
+}
+
 void Question_15() {
+	char selection;
+	int num_days;
+	double daily_rate, med_charge, service_charge, total_charge = 0;
+
 	print_question(15);
 
+	cout << "Was this patient an in-patient or out-patient? Enter ""I"" for "
+		"in-patient and \"O\" for out-patient: " << endl;
+	cin >> selection;
+
+	if ((selection == 'I') || (selection == 'i'))
+	{
+		cout << "Enter the number of days spent at the hospital: " << endl;
+		cin >> num_days;
+
+		cout << "Enter the daily rate per day at the hospital: " << endl;
+		cin >> daily_rate;
+
+		cout << "Enter the total hospital medication charges: " << endl;
+		cin >> med_charge;
+
+		cout << "Enter the total charges for hospital services: " << endl;
+		cin >> service_charge;
+
+		cout << "The total charge for this patient is $" <<
+			patient(num_days, daily_rate, med_charge, service_charge, total_charge)
+			<< endl;
+	}
+	else if ((selection == 'O') || (selection == 'o'))
+	{
+		cout << "Enter the total hospital medication charges: " << endl;
+		cin >> med_charge;
+
+		cout << "Enter the total charges for hospital services: " << endl;
+		cin >> service_charge;
+
+		cout << "The total charge for this patient is $" <<
+			patient(med_charge, service_charge, total_charge) << endl;
+	}
+
 	return_to_menu();
+}
+
+double population_change(int starting_size, int num_years, double birth_rate, 
+	double death_rate, double new_population) {
+
+	new_population = starting_size + (birth_rate * starting_size) - 
+		(death_rate * starting_size);
+
+	return new_population;
 }
 
 void Question_16() {
+	int starting_size, num_years;
+	double birth_rate, death_rate, new_population = 0;
+
 	print_question(16);
+
+	cout << "Enter the starting size of the population: " << endl;
+	cin >> starting_size;
+
+	while (starting_size < 2)
+	{
+		cout << "Starting population cannot be less than 2! Please try again"
+			<< endl;
+		cout << "Enter the starting size of the population: " << endl;
+		cin >> starting_size;
+	}
+
+	cout << "Enter the annual birth rate: " << endl;
+	cin >> birth_rate;
+
+	while (birth_rate < 0)
+	{
+		cout << "Birth rate cannot be less than 0! PLease try again" << endl;
+		cout << "Enter the annual birth rate: " << endl;
+		cin >> birth_rate;
+	}
+
+	cout << "Enter the annual death rate: " << endl;
+	cin >> death_rate;
+
+	while (death_rate < 0)
+	{
+		cout << "Death rate cannot be less than 0! Please try again" << endl;
+		cout << "Enter the annual death rate: " << endl;
+		cin >> death_rate;
+	}
+
+	cout << "Enter the number of years:" << endl;
+	cin >> num_years;
+
+	while (num_years < 1)
+	{
+		cout << "The number of years cannot be less than 1! Please try again"
+			<< endl;
+		cout << "Enter the number of years:" << endl;
+		cin >> num_years;
+	}
+
+	cout << "After " << num_years << " years, the population will reach " <<
+		population_change(starting_size, num_years, birth_rate, death_rate, 
+			new_population) << " individuals." << endl;
 
 	return_to_menu();
 }
 
+double population_change(int starting_size, int num_years, int arrivals, 
+	int departures, double birth_rate, double death_rate, double new_population) {
+
+	new_population = starting_size + (birth_rate * starting_size) 
+		+ arrivals -(death_rate * starting_size) - departures;
+
+	return new_population;
+}
+
 void Question_17() {
+	int starting_size, num_years, arrivals, departures;
+	double birth_rate, death_rate, new_population = 0;
+	
 	print_question(17);
+
+	cout << "Enter the starting size of the population: " << endl;
+	cin >> starting_size;
+
+	while (starting_size < 2)
+	{
+		cout << "Starting population cannot be less than 2! Please try again"
+			<< endl;
+		cout << "Enter the starting size of the population: " << endl;
+		cin >> starting_size;
+	}
+
+	cout << "Enter the annual birth rate: " << endl;
+	cin >> birth_rate;
+
+	while (birth_rate < 0)
+	{
+		cout << "Birth rate cannot be less than 0! PLease try again" << endl;
+		cout << "Enter the annual birth rate: " << endl;
+		cin >> birth_rate;
+	}
+
+	cout << "Enter the annual death rate: " << endl;
+	cin >> death_rate;
+
+	while (death_rate < 0)
+	{
+		cout << "Death rate cannot be less than 0! Please try again" << endl;
+		cout << "Enter the annual death rate: " << endl;
+		cin >> death_rate;
+	}
+
+	cout << "Enter the number of years:" << endl;
+	cin >> num_years;
+
+	while (num_years < 1)
+	{
+		cout << "The number of years cannot be less than 1! Please try again"
+			<< endl;
+		cout << "Enter the number of years:" << endl;
+		cin >> num_years;
+	}
+	
+	cout << "Enter the number of individuals that moved into the population :"
+		<< endl;
+	cin >> arrivals;
+
+	while (arrivals < 0)
+	{
+		cout << "The number of arrivals cannot be less than 0! Please try again"
+			<< endl;
+		cout << "Enter the number of individuals that moved into the population :"
+			<< endl;
+		cin >> arrivals;
+	}
+
+	cout << "Enter the number of individuals that moved out of the population :"
+		<< endl;
+	cin >> departures;
+
+	while (departures < 0)
+	{
+		cout << "The number of departures cannot be less than 0! Please try again"
+			<< endl;
+		cout << "Enter the number of individuals that moved out of the population :"
+			<< endl;
+		cin >> departures;
+	}
+
+	cout << "After " << num_years << " years, the population will reach " <<
+		population_change(starting_size, num_years, arrivals, departures, 
+			birth_rate, death_rate, new_population) << " individuals." << endl;
 
 	return_to_menu();
 }
@@ -586,37 +779,230 @@ void Question_18() {
 	return_to_menu();
 }
 
+double patients(int num_days, double daily_rate, double med_charge,
+	double service_charge, double total_charge) {
+
+	total_charge = (num_days * daily_rate) + med_charge + service_charge;
+
+	return total_charge;
+}
+
+double patients(double med_charge, double service_charge, double total_charge) {
+
+	total_charge = med_charge + service_charge;
+
+	return total_charge;
+}
+
+// From what I understand, you can use simply "fstream" for either input or output
+// When I tried it however, it did not work for me. I had to use "ostream" to 
+// generate output. Why is this?
 void Question_19() {
+	char selection;
+	int num_days;
+	double daily_rate, med_charge, service_charge, total_charge = 0;
+
 	print_question(19);
 
+	cout << "Was this patient an in-patient or out-patient? Enter ""I"" for "
+		"in-patient and \"O\" for out-patient: " << endl;
+	cin >> selection;
+
+	if ((selection == 'I') || (selection == 'i'))
+	{
+		cout << "Enter the number of days spent at the hospital: " << endl;
+		cin >> num_days;
+
+		cout << "Enter the daily rate per day at the hospital: " << endl;
+		cin >> daily_rate;
+
+		cout << "Enter the total hospital medication charges: " << endl;
+		cin >> med_charge;
+
+		cout << "Enter the total charges for hospital services: " << endl;
+		cin >> service_charge;
+
+		ofstream file_output;
+		file_output.open("Question 19 Answers Files.txt");
+
+		file_output << "The total charge for this patient is $" <<
+			patients(num_days, daily_rate, med_charge, service_charge, total_charge)
+			<< endl;
+
+		file_output.close();
+	}
+	else if ((selection == 'O') || (selection == 'o'))
+	{
+		cout << "Enter the total hospital medication charges: " << endl;
+		cin >> med_charge;
+
+		cout << "Enter the total charges for hospital services: " << endl;
+		cin >> service_charge;
+
+		ofstream file_output;
+		file_output.open("Question 19 Answers.txt");
+
+		file_output << "The total charge for this patient is $" <<
+			patients(med_charge, service_charge, total_charge) << endl;
+
+		file_output.close();
+	}
+
 	return_to_menu();
+}
+
+double stock_return(int num_shares, double purchase_price, double purchase_comm,
+	double sale_price, double sale_comm) {
+
+	double profit_loss = ((num_shares * sale_price) - sale_comm) -
+		((num_shares * purchase_price) + purchase_comm);
+
+	return profit_loss;
 }
 
 void Question_20() {
+	int num_shares;
+	double purchase_price, purchase_comm, sale_price, sale_comm, profit_loss = 0;
+	
 	print_question(20);
 
+	cout << "Enter the number of shares purchased: " << endl;
+	cin >> num_shares;
+
+	cout << "Enter the purchase price per share: " << endl;
+	cin >> purchase_price;
+
+	cout << "Enter the purchase commission paid: " << endl;
+	cin >> purchase_comm;
+
+	cout << "Enter the sale price per share: " << endl;
+	cin >> sale_price;
+
+	cout << "Enter the sales commission paid: " << endl;
+	cin >> sale_comm;
+
+	if (profit_loss > 0)
+	{
+		cout << "The profit made on this transaction is $" <<
+			stock_return(num_shares, purchase_price, purchase_comm, sale_price,
+				sale_comm) << endl;
+	}
+	else if (profit_loss < 0)
+	{
+		cout << "The loss made on this transaction is $" <<
+			stock_return(num_shares, purchase_price, purchase_comm, sale_price,
+				sale_comm) << endl;
+	}
+
 	return_to_menu();
+}
+
+double stocks_return(int num_shares, double purchase_price, double purchase_comm,
+	double sale_price, double sale_comm) {
+
+	double profit_loss = ((num_shares * sale_price) - sale_comm) -
+		((num_shares * purchase_price) + purchase_comm);
+
+	return profit_loss;
 }
 
 void Question_21() {
+	int num_shares, num_stock_sales;
+	double purchase_price, purchase_comm, sale_price, sale_comm, profit_loss = 0;
+
 	print_question(21);
+
+	cout << "Enter the number of stock sales: " << endl;
+	cin >> num_stock_sales;
+
+	for (int i = 0; i < num_stock_sales; i++)
+	{
+		cout << "Enter the number of shares purchased: " << endl;
+		cin >> num_shares;
+
+		cout << "Enter the purchase price per share: " << endl;
+		cin >> purchase_price;
+
+		cout << "Enter the purchase commission paid: " << endl;
+		cin >> purchase_comm;
+
+		cout << "Enter the sale price per share: " << endl;
+		cin >> sale_price;
+
+		cout << "Enter the sales commission paid: " << endl;
+		cin >> sale_comm;
+
+		profit_loss = profit_loss + stocks_return(num_shares, purchase_price,
+			purchase_comm, sale_price, sale_comm);
+	}
+
+	if (profit_loss > 0)
+		cout << "The profit made on this transaction is " << profit_loss << 
+		" dollars" << endl;
+	else if (profit_loss < 0)
+		cout << "The loss made on this transaction is " <<	profit_loss << 
+		" dollars" << endl;
 
 	return_to_menu();
 }
 
+bool is_prime(int integer) {
+
+	for (int i = 2; i < integer; i++)
+	{
+		if (integer % i == 0)
+		{
+			// I think there must be some inner loop asd
+			return false;
+		}
+		else 
+			return true;
+	}
+}
+
 void Question_22() {
+	int integer;
+
 	print_question(22);
+
+	cout << "Enter an integer: " << endl;
+	cin >> integer;
+
+	if (is_prime(integer) == true)
+		cout << "The integer " << integer << " is a prime number." << endl;
+	else 
+		cout << "The integer " << integer << " is not a prime number." << endl;
 
 	return_to_menu();
 }
 
 void Question_23() {
+	int integer;
+
 	print_question(23);
+
+	ofstream output_file;
+	output_file.open("Question 23 Answer File.txt");
+
+	for (int i = 1; i < 101; i++)
+	{
+		integer = i;
+
+		if (is_prime(integer) == true)
+			output_file << "The integer " << integer << " is a prime number." << endl;
+		else
+			output_file << "The integer " << integer << " is not a prime number." << endl;
+
+	}
+
+	output_file.close();
 
 	return_to_menu();
 }
 
 void Question_24() {
+	string play;
+	
 	print_question(24);
 
 	return_to_menu();

@@ -7,13 +7,3 @@ A particular talent competition has five judges, each of whom awards a score bet
 - int findLowest() should find and return the lowest of the five scores passed to it. 
 - int findHighest() should find and return the highest of the five scores passed to it. 
 Input Validation: Do not accept judge scores lower than 0 or higher than 10.
-
-
-
-
-
-
-
-
-
-
