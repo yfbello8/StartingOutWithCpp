@@ -1,0 +1,3 @@
+Question 4 - Charge Account Validation Modification 
+
+Modify the program you wrote for Problem 1 (Charge Account Validation) so it per-forms a binary search to locate valid account numbers. Use the selection sort algorithm to sort the array before the binary search is performed. 

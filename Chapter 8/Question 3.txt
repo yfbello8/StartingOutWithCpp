@@ -1,0 +1,3 @@
+Question 3 - Lottery Winners Modification
+ 
+Modify the program you wrote for Programming Challenge 2 (Lottery Winners) so it performs a binary search instead of a linear search. 

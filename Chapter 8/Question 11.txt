@@ -1,0 +1,3 @@
+Question 11 - Using Files-String Selection Sort Modification 
+
+Modify the program you wrote for Programming Challenge 6 so it reads in 20 strings from a file. The data can be found in the names.txt file. 
