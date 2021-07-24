@@ -250,6 +250,7 @@ int main() {
 	Menu();
 }
 
+// This function is for Question 1
 double calculate_retail(double wholesale_cost, double markup_percentage) {
 	double retail_price;
 
@@ -286,16 +287,52 @@ void Question_1() {
 	return_to_menu();
 }
 
-void Question_2() {
+// These functions below are for Question 2
+void display_data(double area, double length, double width) {
 
+	cout << "The rectangle of length " << length << "units and width " << width 
+		<<"units has an area of " << area << "units. " << endl;
+}
+
+void get_area(double length, double width) {
+	double area = length * width;
+
+	display_data(area, length, width);
+}
+
+double get_width() {
+	double width;
+
+	cout << "Enter the width of a rectangle: " << endl;
+	cin >> width;
+
+	return width;
+}
+
+double get_length() {
+	double length;
+
+	cout << "Enter the length of a rectangle: " << endl;
+	cin >> length;
+
+	return length;
+}
+
+void Question_2() {
+	double width, length, area;
 
 	print_question(2);
 
+	length = get_length();
+	width = get_width();
+
+	get_area(length, width);
 
 
 	return_to_menu();
 }
 
+// These functions below are for Question 3
 void find_highest() {
 
 
@@ -333,13 +370,46 @@ void Question_3() {
 	return_to_menu();
 }
 
+// These functions below are for Question 4
+void find_lowest() {
+
+
+
+}
+
+int get_num_accidents(string region) {
+	int num_accidents;
+	
+	cout << "Enter the number of automobile accidents in " << region << 
+		" during the last year." << endl;
+	cin >> num_accidents;
+	
+	while (num_accidents < 0)
+	{
+		cout << "The number of accidents cannot be less than 0! Please try again" << endl;
+		cout << "Enter the number of automobile accidents in " << region <<
+			" during the last year." << endl;
+		cin >> num_accidents;
+	}
+
+	return num_accidents;
+}
+
+//asd
 void Question_4() {
+	string region;
+	
 	print_question(4);
 
+	cout << "Enter the region: " << endl;
+	cin >> region;
+
+	get_num_accidents(region);
 
 	return_to_menu();
 }
 
+// This functions below is for Question 5
 double falling_distance(double falling_time) {
 	double distance, g_force = 9.8;
 
@@ -355,13 +425,30 @@ void Question_5() {
 	return_to_menu();
 }
 
+// This functions below is for Question 6
+double kinetic_energy(double mass, double velocity) {
+	double energy = 0.5 * mass * pow(velocity, 2);
+
+	return energy;
+}
+
 void Question_6() {
+	double mass, velocity;
+	
 	print_question(6);
 
+	cout << "Enter the mass of the object: " << endl;
+	cin >> mass;
+
+	cout << "Enter the velocity of the object: " << endl;
+	cin >> velocity;
+	
+	cout << "The kinetic energy is " << kinetic_energy(mass,velocity) << endl;
 
 	return_to_menu();
 }
 
+// This functions below is for Question 7
 double celsius(double f) {
 	double celsius = (f - 32) * (5.0 / 9);
 
@@ -378,13 +465,45 @@ void Question_7() {
 	return_to_menu();
 }
 
+// This functions below is for Question 8 
+void coin_toss() {
+	int coin, min = 1, max = 2; 
+
+	unsigned seed = time(0);
+	srand(seed);
+	
+	// How do i make this work asd
+	coin = (rand() % (max - min+1)) + min;
+	
+	cout << rand() << " " << coin << endl;
+
+	if (coin == 1)
+	{
+		cout << "The coin is heads" << endl;
+	}
+	else if (coin == 2)
+	{
+		cout << "The coin is tails" << endl;
+	}
+	else
+		cout << "There is an error. Please try again later" << endl;
+}
+
 void Question_8() {
+	int num_coin_toss;
+	
 	print_question(8);
 
+	cout << "Enter the number of times the coin should be tossed: " << endl;
+	cin >> num_coin_toss;
+
+	for (int i = 0; i < num_coin_toss; i++)
+		coin_toss();
 
 	return_to_menu();
 }
 
+// This functions below is for Question 9
 double present_value(double future_val, double annual_rate, int num_years) {
 	double present_val, x;
 
@@ -417,34 +536,49 @@ void Question_9() {
 	return_to_menu();
 }
 
+// This functions below is for Question 10
+void future_value(double present, double rate, double months) {
+	double x = pow((1 + rate), months), future = present * x;
+
+	cout << "An account with $" << present << "initial deposit left over " <<
+		months << " months with a " << rate * 100 << "% monthly interest rate "
+		"will eventually become $" << fixed << setprecision(2) << future << endl;
+}
+
 void Question_10() {
+	double present_value, interest_rate, num_months;
+
 	print_question(10);
+
+	cout << "Enter the present value in the account: " << endl;
+	cin >> present_value;
+
+	cout << "Enter the monthly interest rate: " << endl;
+	cin >> interest_rate;
+
+	interest_rate = interest_rate / 100.0;
+
+	cout << "Enter the number of months the money will be left in the account: "
+		<< endl;
+	cin >> num_months;
+
+	future_value(present_value, interest_rate, num_months);
 
 	return_to_menu();
 }
 
-
+// These functions below are for Question 11 and Question 12
 int find_lowest(double score1, double score2, double score3, double score4, double score5) {
-	double lowest = 0;
+	double lowest = score1;
 
-	lowest = score1;
-
-	if (score2 < score1)
-	{
+	if (score2 < lowest)
 		lowest = score2;
-
-		if (score3 < score2)
-		{
-			lowest = score3;
-
-		}
-
-	}
-	else if (score3 < score1)
-	{
+	else if (score3 < lowest)
 		lowest = score3;
-
-	}
+	else if (score4 < lowest)
+		lowest = score1;
+	else if (score5 < lowest)
+		lowest = score5;
 
 	return lowest;
 }
@@ -484,24 +618,72 @@ void Question_11() {
 	get_score(score4);
 	get_score(score5);
 
-	cout << "Scores: " << score1 << endl << score2 << endl << score3 << endl
-		<< score4 << endl << score5 << endl;
-
 	calc_average(score1, score2, score3, score4, score5);
 
 	return_to_menu();
 }
 
+// These functions below are for Question 12
+int find_highest(double score1, double score2, double score3, double score4,
+	double score5) {
+	int highest = score1;
+
+	if (score2 > highest)
+		highest = score2;
+	else if (score3 > highest)
+		highest = score3;
+	else if (score4 > highest)
+		highest = score4;
+	else if (score5 > highest)
+		highest = score5;    
+	
+	return highest;
+}
+
+void calc_score(double score1, double score2, double score3, double score4, 
+	double score5) {
+	double lowest, highest, middle_score, avg;
+
+	lowest = find_lowest(score1, score2, score3, score4, score5);
+	highest = find_highest(score1, score2, score3, score4, score5);
+
+	middle_score = score1 + score2 + score3 + score4 + score5 
+		- lowest - highest;
+	avg = middle_score / 3;
+
+	cout << "The score is " << avg << endl; 
+}
+
+void get_judge_data(double &score){
+
+	cout << "Enter a judge's score: " << endl;
+	cin >> score;
+
+	while ((score < 0) || (score > 10))
+	{
+		cout << "Scores must be between 0 and 10! Please try again" << endl;
+		cout << "Enter a judge's score: " << endl;
+		cin >> score;
+	}
+}
+
 void Question_12() {
+	double score1, score2, score3, score4, score5;
+	
 	print_question(12);
 
+	get_judge_data(score1);
+	get_judge_data(score2);
+	get_judge_data(score3);
+	get_judge_data(score4);
+	get_judge_data(score5);
 
-
-
+	calc_score(score1, score2, score3, score4, score5);
 
 	return_to_menu();
 }
 
+// These functions below are for Question 13
 double avg_days_missed(int num_employees, int days_missed) {
 	double avg_days_missed_per_employee = days_missed / num_employees;
 
@@ -553,13 +735,98 @@ void Question_13() {
 	return_to_menu();
 }
 
+// These functions below are for Question 14
+void show_data(int spools_in_stock, int  spools_ordered, 
+	double special_charges_per_spool = 10) {
+	int spools_backordered = 0, spools_ready = 0;
+	double subtotal, total_shipping,  total;
+
+	if (spools_ordered > spools_in_stock)
+	{
+		spools_backordered = spools_ordered - spools_in_stock;
+		spools_ready = spools_in_stock;
+	}
+	else if (spools_ordered < spools_in_stock)
+		spools_ready = spools_ordered;	
+
+	subtotal = spools_ready * 100;
+	total_shipping = special_charges_per_spool * spools_ready;
+	total = subtotal + total_shipping;
+
+	cout << fixed << setprecision(2) << endl;
+	cout << "The number of spools ready from current stock: " << spools_ready 
+		<< endl;
+	cout << "The number of spools on backorder: " << spools_backordered << endl;
+	cout << "Subtotal of the portion ready to ship: $" << subtotal << endl;
+	cout << "Total shipping and handling charges on the portion ready to ship: $"
+		<< total_shipping << endl;
+	cout << "Total of the order ready to ship: $" << total << endl;
+}
+
+void gather_data() {
+	int spools_ordered, spools_in_stock;
+	char shipping_charges_selection;
+	double special_charges_per_spool;
+
+	cout << "Enter the number of spools ordered: " << endl;
+	cin >> spools_ordered;
+
+	while (spools_ordered < 1)
+	{
+		cout << "The number of spools ordered cannot be less than 1! Try again"
+			<< endl;
+			cout << "Enter the number of spools ordered: " << endl;
+		cin >> spools_ordered;
+	}
+
+	cout << "Enter the number of spools in stock: " << endl;
+	cin >> spools_in_stock;
+
+	while (spools_in_stock < 0)
+	{
+		cout << "The number of spools in stock cannot be less than 0! Try again"
+			<< endl;
+		cout << "Enter the number of spools in stock: " << endl;
+		cin >> spools_in_stock;
+	}
+
+	cout << "Are there special shipping and handling charges? Enter \'y\' for "
+		"YES and \'n\' for NO: " << endl;
+	cin >> shipping_charges_selection;
+
+	while ((shipping_charges_selection != 'y') &&
+		(shipping_charges_selection != 'Y') &&
+		(shipping_charges_selection != 'n') &&
+		(shipping_charges_selection != 'N'))
+	{
+		cout << "Please only enter either \'y\' for YES and \'n\' for NO: " 
+			<< endl;
+		cout << "Are there special shipping and handling charges? Enter \'y\' "
+			"for YES and \'n\' for NO: " << endl;
+		cin >> shipping_charges_selection;
+	}
+
+	if ((shipping_charges_selection == 'y') ||
+		(shipping_charges_selection == 'Y'))
+	{
+		cout << "Enter the special charges per spool: " << endl;
+		cin >> special_charges_per_spool;
+
+		show_data(spools_in_stock, spools_ordered, special_charges_per_spool);
+	}
+
+	show_data(spools_in_stock, spools_ordered);
+}
+
 void Question_14() {
 	print_question(14);
 
+	gather_data();
 
 	return_to_menu();
 }
 
+// These functions below are for Question 15
 double patient(int num_days, double daily_rate, double med_charge,
 	double service_charge, double total_charge) {
 
@@ -619,6 +886,7 @@ void Question_15() {
 	return_to_menu();
 }
 
+// This functions is for Question 16
 double population_change(int starting_size, int num_years, double birth_rate, 
 	double death_rate, double new_population) {
 
@@ -683,6 +951,7 @@ void Question_16() {
 	return_to_menu();
 }
 
+// This functions is for Question 17
 double population_change(int starting_size, int num_years, int arrivals, 
 	int departures, double birth_rate, double death_rate, double new_population) {
 
@@ -773,12 +1042,68 @@ void Question_17() {
 	return_to_menu();
 }
 
+// These functions are for Question 18
+void display_paint_job_data(double total_footage, double paint_price) {
+	double gallons_needed = total_footage / 110.0,
+		hours_needed = total_footage / 110.0 * 8,
+		paint_cost = paint_price * gallons_needed, 
+		labor_costs = hours_needed * 25, 
+		total_cost = paint_cost + labor_costs;
+
+	cout << "The number of gallons of paint required: " << gallons_needed << endl;
+	cout << "The hours of labor required: " << hours_needed << endl;
+	cout << "The cost of the paint required: $" << paint_cost << endl;
+	cout << "The cost of the labor required: $" << labor_costs << endl;
+	cout << "The total cost to do the paint job: $" << total_cost << endl;
+}
+
+void get_data() {
+	int num_rooms;
+	double square_feet, total_footage = 0, paint_price;
+	
+	cout << "Enter the number of rooms to be painted: " << endl;
+	cin >> num_rooms;
+
+	while (num_rooms < 0)
+	{
+		cout << "The number of rooms cannot be less than 0! Please try again"
+			<< endl;
+		cout << "Enter the number of rooms to be painted: " << endl;
+		cin >> num_rooms;
+	}
+
+	for (int i = 1; i < num_rooms+1; i++)
+	{
+		cout << "Enter the square feet of wall space that needs to be painted in room"
+			<< i << ": " << endl;
+		cin >> square_feet;
+
+		total_footage = square_feet + total_footage;
+	}
+
+	cout << "Enter the price of 1 gallon of point: " << endl;
+	cin >> paint_price;
+
+	while (paint_price < 10.0)
+	{
+		cout << "The price for a gallon of paint cannot be less than $10.00! "
+			"Please try again." << endl;
+			cout << "Enter the price of 1 gallon of point: " << endl;
+		cin >> paint_price;
+	}
+
+	display_paint_job_data(total_footage, paint_price);
+}
+
 void Question_18() {
 	print_question(18);
+
+	get_data();
 
 	return_to_menu();
 }
 
+// These functions below are for Question 19
 double patients(int num_days, double daily_rate, double med_charge,
 	double service_charge, double total_charge) {
 
@@ -851,6 +1176,7 @@ void Question_19() {
 	return_to_menu();
 }
 
+// This functions is for Question 20
 double stock_return(int num_shares, double purchase_price, double purchase_comm,
 	double sale_price, double sale_comm) {
 
@@ -897,6 +1223,7 @@ void Question_20() {
 	return_to_menu();
 }
 
+// This functions is for Question 21
 double stocks_return(int num_shares, double purchase_price, double purchase_comm,
 	double sale_price, double sale_comm) {
 
@@ -946,6 +1273,7 @@ void Question_21() {
 	return_to_menu();
 }
 
+// This functions is for Question 22 and Question 23
 bool is_prime(int integer) {
 
 	for (int i = 2; i < integer; i++)
@@ -1000,10 +1328,101 @@ void Question_23() {
 	return_to_menu();
 }
 
-void Question_24() {
-	string play;
+// Is there a better way to do this outside of hard-coding it?
+/*
+Code: 
+Rock = 1
+Paper = 2
+Scissors = 3
+*/
+void decision(int player, int computer) {
+	int choice_a, choice_b, int_winner;
+
+	switch (player)
+	{
+	case 1:
+		if (computer == 1)
+		{
+			cout << "You both picked rock! It's a tie! Play again" << endl;
+			selection();
+		}
+		else if (computer == 2)
+			cout << "You picked rock but the computer picked paper. Paper beats "
+			"rock. You lost" << endl; 
+		else if (computer == 3)
+			cout << "You picked rock and the computer picked scissors. Rock beats " 
+			"scissors. You win!" << endl;
+		else
+			cout << "You have come across an error that should not even be "
+			"possible. Nice job finding this easter egg" << endl;
+		break;
+
+	case 2:
+		if (computer == 1)
+			cout << "You picked paper and the computer picked rock. Paper beats "
+			"rock. You win!" << endl;
+		else if (computer == 2)
+		{
+			cout << "You both picked paper! It's a tie! Play again" << endl;
+			selection();
+		}
+		else if (computer == 3)
+			cout << "You picked paper but the computer picked scissors. Scissors "
+			"beats paper. You lost" << endl;
+		else
+			cout << "You have come across an error that should not even be "
+			"possible. Nice job finding this easter egg" << endl;
+		break;
+
+	case 3:
+		if (computer == 1)
+			cout << "You picked scissors but the computer picked rock. Rock "
+			"beats scissors. You lost " << endl;
+		else if (computer == 2)
+			cout << "You picked scissors and the computer picked paper. Scissors "
+			"beats paper. You won!" << endl;
+		else if (computer == 3)
+		{
+			cout << "You both picked scissors! It's a tie! Play again" << endl;
+			selection();
+		}
+		else
+			cout << "You have come across an error that should not even be "
+			"possible. Nice job finding this easter egg" << endl;
+		break;
+
+	default:
+			cout << "Something went wrong. Sorry" << endl;
+	}
+}
+
+
+// I need to choose random numbers between 1 and 3 here
+int selection() {
+	int computer_selection, player_selection;
+
+	cout << "Enter your selection: \'1\' for rock, \'2\' for paper and \'3\' "
+		"for scissors: " << endl;
+	cin >> player_selection;
 	
+	while ((player_selection < 1) || (player_selection > 3))
+	{
+		cout << "The selection must be between 1 and 3! Try again" << endl;
+		cout << "Enter your selection: \'1\' for rock, \'2\' for paper and \'3\' "
+			"for scissors: " << endl;
+		cin >> player_selection;
+	}
+
+	decision(player_selection, computer_selection);
+}
+
+// I recognize I can add a running tally that would calculate how many wins 
+// each player has without much effort. Perhaps I should do that in a stand-alone
+// project later on.
+void Question_24() {
 	print_question(24);
+
+	selection();
 
 	return_to_menu();
 }
