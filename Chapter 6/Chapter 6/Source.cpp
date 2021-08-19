@@ -1283,9 +1283,8 @@ bool is_prime(int integer) {
 			// I think there must be some inner loop asd
 			return false;
 		}
-		else 
-			return true;
 	}
+	return true;
 }
 
 void Question_22() {
